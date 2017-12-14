@@ -843,7 +843,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var LoadCoinInfoService = (function () {
     function LoadCoinInfoService(_http) {
         this._http = _http;
-        this.domain = 'http://localhost:3333'; // http://localhost:3333 , https://cstoreapi.herokuapp.com
+        this.domain = 'https://cstoreapi.herokuapp.com'; // http://localhost:3333 , https://cstoreapi.herokuapp.com
     }
     LoadCoinInfoService.prototype.getCoins = function () {
         return this._http.get(this.domain + '/get_coin_info')
@@ -887,7 +887,7 @@ var RouteService = (function () {
     function RouteService(_userService, _router) {
         this._userService = _userService;
         this._router = _router;
-        this.domain = 'http://localhost:3333'; // http://localhost:3333 , https://cstoreapi.herokuapp.com
+        this.domain = 'https://cstoreapi.herokuapp.com'; // http://localhost:3333 , https://cstoreapi.herokuapp.com
     }
     RouteService.prototype.canActivate = function (next, state) {
         var _this = this;
@@ -944,7 +944,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ShoppingCartService = (function () {
     function ShoppingCartService(_http) {
         this._http = _http;
-        this.domain = 'http://localhost:3333'; // http://localhost:3333 , https://cstoreapi.herokuapp.com
+        this.domain = 'https://cstoreapi.herokuapp.com'; // http://localhost:3333 , https://cstoreapi.herokuapp.com
     }
     ShoppingCartService.prototype.getCartItems = function () {
         return this._http.get(this.domain + '/shopping_cart', { withCredentials: true })
@@ -1027,7 +1027,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var UserService = (function () {
     function UserService(_http) {
         this._http = _http;
-        this.domain = 'http://localhost:3333'; // http://localhost:3333 , https://cstoreapi.herokuapp.com
+        this.domain = 'https://cstoreapi.herokuapp.com'; // http://localhost:3333 , https://cstoreapi.herokuapp.com
     }
     UserService.prototype.isLoggedIn = function () {
         return this._http.get(this.domain + '/user/isauthenticated', { withCredentials: true });
