@@ -945,7 +945,7 @@ var LoginComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Domain; });
 var Domain = (function () {
     function Domain() {
-        this.url = 'http://localhost:3333'; // http://localhost:3333 , https://cstoreapi.herokuapp.com;
+        this.url = "https://cstoreapi.herokuapp.com"; // http://localhost:3333 , https://cstoreapi.herokuapp.com;
     }
     return Domain;
 }());
