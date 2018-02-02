@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>\n\n"
+module.exports = "<div id=\"main\" class=\"container\">\n  <router-outlet></router-outlet>\n</div>\n<app-footer></app-footer>\n"
 
 /***/ }),
 
@@ -96,12 +96,13 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__order_details_order_details_component__ = __webpack_require__("../../../../../src/app/order-details/order-details.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__forgot_user_password_forgot_user_password_component__ = __webpack_require__("../../../../../src/app/forgot-user-password/forgot-user-password.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__reset_password_reset_password_component__ = __webpack_require__("../../../../../src/app/reset-password/reset-password.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_shopping_cart_service__ = __webpack_require__("../../../../../src/app/services/shopping.cart.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_load_coin_info_service__ = __webpack_require__("../../../../../src/app/services/load.coin.info.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_check_auth_service__ = __webpack_require__("../../../../../src/app/services/check.auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_check_not_auth_service__ = __webpack_require__("../../../../../src/app/services/check.not.auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__objects_domain_class__ = __webpack_require__("../../../../../src/app/objects/domain.class.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__footer_footer_component__ = __webpack_require__("../../../../../src/app/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_shopping_cart_service__ = __webpack_require__("../../../../../src/app/services/shopping.cart.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_load_coin_info_service__ = __webpack_require__("../../../../../src/app/services/load.coin.info.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_check_auth_service__ = __webpack_require__("../../../../../src/app/services/check.auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_check_not_auth_service__ = __webpack_require__("../../../../../src/app/services/check.not.auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__objects_domain_class__ = __webpack_require__("../../../../../src/app/objects/domain.class.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -132,18 +133,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var appRoutes = [
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_9__homepage_homepage_component__["a" /* HomepageComponent */] },
-    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_10__login_login_component__["a" /* LoginComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_check_not_auth_service__["a" /* isNotAuthGuard */]] },
-    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_13__signup_signup_component__["a" /* SignupComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_check_not_auth_service__["a" /* isNotAuthGuard */]] },
-    { path: 'purchase_history/order_details/:id', component: __WEBPACK_IMPORTED_MODULE_15__order_details_order_details_component__["a" /* OrderDetailsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_check_auth_service__["a" /* isAuthGuard */]] },
-    { path: 'purchase_history', component: __WEBPACK_IMPORTED_MODULE_11__purchase_history_purchase_history_component__["a" /* PurchaseHistoryComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_check_auth_service__["a" /* isAuthGuard */]] },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_10__login_login_component__["a" /* LoginComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_23__services_check_not_auth_service__["a" /* isNotAuthGuard */]] },
+    { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_13__signup_signup_component__["a" /* SignupComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_23__services_check_not_auth_service__["a" /* isNotAuthGuard */]] },
+    { path: 'purchase_history/order_details/:id', component: __WEBPACK_IMPORTED_MODULE_15__order_details_order_details_component__["a" /* OrderDetailsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_check_auth_service__["a" /* isAuthGuard */]] },
+    { path: 'purchase_history', component: __WEBPACK_IMPORTED_MODULE_11__purchase_history_purchase_history_component__["a" /* PurchaseHistoryComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_check_auth_service__["a" /* isAuthGuard */]] },
     { path: 'cart', component: __WEBPACK_IMPORTED_MODULE_12__shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */] },
-    { path: 'checkout', component: __WEBPACK_IMPORTED_MODULE_7__checkout_checkout_component__["a" /* CheckoutComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_check_auth_service__["a" /* isAuthGuard */]] },
-    { path: 'change_user_password', component: __WEBPACK_IMPORTED_MODULE_6__change_user_password_change_user_password_component__["a" /* ChangeUserPasswordComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_check_auth_service__["a" /* isAuthGuard */]] },
-    { path: 'order_confirmation/:id', component: __WEBPACK_IMPORTED_MODULE_14__order_confirmation_order_confirmation_component__["a" /* OrderConfirmationComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_check_auth_service__["a" /* isAuthGuard */]] },
+    { path: 'checkout', component: __WEBPACK_IMPORTED_MODULE_7__checkout_checkout_component__["a" /* CheckoutComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_check_auth_service__["a" /* isAuthGuard */]] },
+    { path: 'change_user_password', component: __WEBPACK_IMPORTED_MODULE_6__change_user_password_change_user_password_component__["a" /* ChangeUserPasswordComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_check_auth_service__["a" /* isAuthGuard */]] },
+    { path: 'order_confirmation/:id', component: __WEBPACK_IMPORTED_MODULE_14__order_confirmation_order_confirmation_component__["a" /* OrderConfirmationComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_check_auth_service__["a" /* isAuthGuard */]] },
     { path: 'reset/:token', component: __WEBPACK_IMPORTED_MODULE_17__reset_password_reset_password_component__["a" /* ResetPasswordComponent */] },
-    { path: 'forgot', component: __WEBPACK_IMPORTED_MODULE_16__forgot_user_password_forgot_user_password_component__["a" /* ForgotUserPasswordComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__services_check_not_auth_service__["a" /* isNotAuthGuard */]] },
+    { path: 'forgot', component: __WEBPACK_IMPORTED_MODULE_16__forgot_user_password_forgot_user_password_component__["a" /* ForgotUserPasswordComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_23__services_check_not_auth_service__["a" /* isNotAuthGuard */]] },
     { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 var AppModule = (function () {
@@ -164,7 +166,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_14__order_confirmation_order_confirmation_component__["a" /* OrderConfirmationComponent */],
                 __WEBPACK_IMPORTED_MODULE_15__order_details_order_details_component__["a" /* OrderDetailsComponent */],
                 __WEBPACK_IMPORTED_MODULE_16__forgot_user_password_forgot_user_password_component__["a" /* ForgotUserPasswordComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__reset_password_reset_password_component__["a" /* ResetPasswordComponent */]
+                __WEBPACK_IMPORTED_MODULE_17__reset_password_reset_password_component__["a" /* ResetPasswordComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__footer_footer_component__["a" /* FooterComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -174,12 +177,12 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* RouterModule */].forRoot(appRoutes)
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_18__services_user_service__["a" /* UserService */],
-                __WEBPACK_IMPORTED_MODULE_19__services_shopping_cart_service__["a" /* ShoppingCartService */],
-                __WEBPACK_IMPORTED_MODULE_20__services_load_coin_info_service__["a" /* LoadCoinInfoService */],
-                __WEBPACK_IMPORTED_MODULE_21__services_check_auth_service__["a" /* isAuthGuard */],
-                __WEBPACK_IMPORTED_MODULE_22__services_check_not_auth_service__["a" /* isNotAuthGuard */],
-                __WEBPACK_IMPORTED_MODULE_23__objects_domain_class__["a" /* Domain */]
+                __WEBPACK_IMPORTED_MODULE_19__services_user_service__["a" /* UserService */],
+                __WEBPACK_IMPORTED_MODULE_20__services_shopping_cart_service__["a" /* ShoppingCartService */],
+                __WEBPACK_IMPORTED_MODULE_21__services_load_coin_info_service__["a" /* LoadCoinInfoService */],
+                __WEBPACK_IMPORTED_MODULE_22__services_check_auth_service__["a" /* isAuthGuard */],
+                __WEBPACK_IMPORTED_MODULE_23__services_check_not_auth_service__["a" /* isNotAuthGuard */],
+                __WEBPACK_IMPORTED_MODULE_24__objects_domain_class__["a" /* Domain */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
         })
@@ -369,7 +372,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/checkout/checkout.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n\t<app-header [totalQuantity] = \"total_qty\"></app-header>\n</div>\n<br><br><br><br>\n<div class=\"row\">\n\t<form accept-charset=\"UTF-8\" class=\"form-horizontal\" role=\"form\" #shoppingCartCheckoutForm=\"ngForm\" (ngSubmit)=\"createToken()\" id=\"shoppingCartCheckoutForm\">\n\n\t<div class=\"col-sm-7\">\n\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"panel panel-default\">\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t<strong>Shipping Address</strong><br><br>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Full Name</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"text\" placeholder=\"Full Name\" id=\"cardName\" name=\"cardName\" [(ngModel)]=\"checkoutOrderInfo.name\">\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Address Line 1</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"text\"  placeholder=\"Address Line 1\" id=\"addressLine1\" name=\"addressLine1\" [(ngModel)]=\"checkoutOrderInfo.addressLine1\">\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Address Line 2</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"text\" placeholder=\"Address Line 2\" id=\"addressLine2\" name=\"addressLine2\" [(ngModel)]=\"checkoutOrderInfo.addressLine2\">\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">City</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"text\" placeholder=\"City\" id=\"addressCity\" name=\"addressCity\" [(ngModel)]=\"checkoutOrderInfo.addressCity\">\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">State/Province</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"text\" placeholder=\"State/Province/Region\" id=\"addressState\" name=\"addressState\" [(ngModel)]=\"checkoutOrderInfo.addressState\">\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Zip/Postal Code</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"text\" placeholder=\"Zip/Postal Code\" id=\"addressZip\" name=\"addressZip\" [(ngModel)]=\"checkoutOrderInfo.addressZip\">\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Country</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"text\" placeholder=\"Country\" id=\"addressCountry\" name=\"addressCountry\" [(ngModel)]=\"checkoutOrderInfo.addressCountry\">\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"panel panel-default\">\n\t\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t\t\t<strong>Credit Card</strong><br><br>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-offset-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tUse stripeJS test card 4242 4242 4242 4242\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\" for=\"cardNumber-element\">Card Number</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-control\" id=\"cardNumber-element\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- a Stripe Element will be inserted here. -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\" for=\"cardExpiry-element\">Card Expiry</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-control\" id=\"cardExpiry-element\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- a Stripe Element will be inserted here. -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\" for=\"cardCvc-element\">CVC</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-control\" id=\"cardCvc-element\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- a Stripe Element will be inserted here. -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\" for=\"postalCode-element\">Zip/Postal Code</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-control\" id=\"postalCode-element\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- a Stripe Element will be inserted here. -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<br>\t\t\t\n\t\t\t\t\n\n\n\n\t</div>\n\n\n\t<div class=\"col-sm-1\"></div>\n\n\n\t<div class=\"col-sm-4\">\n\t\t<div class=\"row\">\n\t\t<div class=\"panel panel-default\">\n\n\t\t\t<div class=\"panel-body\">\n\t\t\t\t<strong>Items</strong><br><br>\n\t\t\t\t<table class=\"table table-condensed table-hover no-bottom-margin\">\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<ng-container *ngFor=\"let cartItem of cartItems\"> <!-- loops through the items to be displayed -->\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t{{cartItem.item.title}}\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"col-sm-3\">\n\t\t\t\t\t\t\t\t\t${{cartItem.item.price}}\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"col-sm-3\">\n\t\t\t\t\t\t\t\t\tQty: {{cartItem.qty}}\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t\t<div class=\"panel panel-default\">\n\n\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t<strong>Order Details</strong><br><br>\n\t\t\t\t\t\t\t<table class=\"table table-condensed table-hover no-bottom-margin\">\n\t\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t<td class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\t\tSubtotal:\n\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t<td class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t${{cartTotalPrice}}\n\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t<td class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\t\tShipping:\n\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t<td class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t$0\n\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t<td class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t<strong>Grand Total:</strong>\n\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t<td class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t<strong>${{cartTotalPrice + 0}}</strong>\n\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t\t</table><br>\n\t\t\t\t\t\t\t\t\t<div class=\"text-center\">\n\t\t\t\t\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-success\">Buy now ${{cartTotalPrice}}</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t</div>\n\t</div>\n</form>\n</div>\n"
+module.exports = "<div class=\"row\">\n\t<app-header [totalQuantity] = \"total_qty\"></app-header>\n</div>\n<br><br><br><br>\n<div class=\"row\">\n\t<fieldset>\n\t\t<legend>Checkout</legend>\n\t</fieldset>\n\t<form accept-charset=\"UTF-8\" class=\"form-horizontal\" role=\"form\" #shoppingCartCheckoutForm=\"ngForm\" (ngSubmit)=\"createToken()\" id=\"shoppingCartCheckoutForm\">\n\n\t<div class=\"col-sm-7\">\n\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"panel panel-default\">\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t<strong>Shipping Address</strong><br><br>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Full Name</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"text\" placeholder=\"Full Name\" id=\"cardName\" name=\"cardName\" [(ngModel)]=\"checkoutOrderInfo.name\">\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Address Line 1</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"text\"  placeholder=\"Address Line 1\" id=\"addressLine1\" name=\"addressLine1\" [(ngModel)]=\"checkoutOrderInfo.addressLine1\">\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Address Line 2</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"text\" placeholder=\"Address Line 2\" id=\"addressLine2\" name=\"addressLine2\" [(ngModel)]=\"checkoutOrderInfo.addressLine2\">\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">City</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"text\" placeholder=\"City\" id=\"addressCity\" name=\"addressCity\" [(ngModel)]=\"checkoutOrderInfo.addressCity\">\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">State/Province</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"text\" placeholder=\"State/Province/Region\" id=\"addressState\" name=\"addressState\" [(ngModel)]=\"checkoutOrderInfo.addressState\">\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Zip/Postal Code</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"text\" placeholder=\"Zip/Postal Code\" id=\"addressZip\" name=\"addressZip\" [(ngModel)]=\"checkoutOrderInfo.addressZip\">\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Country</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"text\" placeholder=\"Country\" id=\"addressCountry\" name=\"addressCountry\" [(ngModel)]=\"checkoutOrderInfo.addressCountry\">\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"panel panel-default\">\n\t\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t\t\t<strong>Credit Card</strong><br><br>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-offset-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tUse stripeJS test card 4242 4242 4242 4242\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\" for=\"cardNumber-element\">Card Number</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-control\" id=\"cardNumber-element\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- a Stripe Element will be inserted here. -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\" for=\"cardExpiry-element\">Card Expiry</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-control\" id=\"cardExpiry-element\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- a Stripe Element will be inserted here. -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\" for=\"cardCvc-element\">CVC</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-control\" id=\"cardCvc-element\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- a Stripe Element will be inserted here. -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\" for=\"postalCode-element\">Zip/Postal Code</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-control\" id=\"postalCode-element\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- a Stripe Element will be inserted here. -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<br>\t\t\t\n\t\t\t\t\n\n\n\n\t</div>\n\n\n\t<div class=\"col-sm-1\"></div>\n\n\n\t<div class=\"col-sm-4\">\n\t\t<div class=\"row\">\n\t\t<div class=\"panel panel-default\">\n\n\t\t\t<div class=\"panel-body\">\n\t\t\t\t<strong>Items</strong><br><br>\n\t\t\t\t<table class=\"table table-condensed table-hover no-bottom-margin\">\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<ng-container *ngFor=\"let cartItem of cartItems\"> <!-- loops through the items to be displayed -->\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t{{cartItem.item.title}}\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"col-sm-3\">\n\t\t\t\t\t\t\t\t\t${{cartItem.item.price}}\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"col-sm-3\">\n\t\t\t\t\t\t\t\t\tQty: {{cartItem.qty}}\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</div>\n\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t\t<div class=\"panel panel-default\">\n\n\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t<strong>Order Details</strong><br><br>\n\t\t\t\t\t\t\t<table class=\"table table-condensed table-hover no-bottom-margin\">\n\t\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t<td class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\t\tSubtotal:\n\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t<td class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t${{cartTotalPrice}}\n\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t<td class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\t\tShipping:\n\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t<td class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t$0\n\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t<td class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t<strong>Grand Total:</strong>\n\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t<td class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t<strong>${{cartTotalPrice + 0}}</strong>\n\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t\t</table><br>\n\t\t\t\t\t\t\t\t\t<div class=\"text-center\">\n\t\t\t\t\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-success\">Buy now ${{cartTotalPrice}}</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t</div>\n\t</div>\n</form>\n</div>\n"
 
 /***/ }),
 
@@ -509,6 +512,65 @@ var CheckoutComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/footer/footer.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".footer {\r\n    position: absolute;\r\n    bottom: 0;\r\n    width: 100%;\r\n    /* Set the fixed height of the footer here */\r\n    height: 30px;\r\n    background-color: #21313F;\r\n    padding-top: 5px;\r\n  }", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/footer/footer.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<footer class=\"footer\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-sm-12 text-center\">\n        <font color=\"white\">Created by Kenny Leung</font>\n      </div>\n    </div>\n  </div>\n</footer>\n\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/footer/footer.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FooterComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var FooterComponent = (function () {
+    function FooterComponent() {
+    }
+    FooterComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-footer',
+            template: __webpack_require__("../../../../../src/app/footer/footer.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/footer/footer.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], FooterComponent);
+    return FooterComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/forgot-user-password/forgot-user-password.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -637,7 +699,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<!-- <div class=\"row\">\n  <div class=\"col-sm-6\">\n      <div class=\"page-header2\">\n          <h1>{{title}}</h1>\n      </div>\n  </div>\n</div> -->\n\n<nav class=\"navbar navbar-inverse navbar-fixed-top\">\n    <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n            <a routerLink=\"/home\" class=\"navbar-brand\">Bullion Coin Store</a>\n        </div>\n\n        <ul class=\"nav navbar-nav\">\n            <li class=\"active\"><a routerLink=\"/home\">Home</a></li>\n        </ul>\n\n        <ul class=\"nav navbar-nav navbar-right\">\n            <ng-container *ngIf = \"loggedIn\">\n                <li class=\"dropdown\">\n                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">User Account<span class=\"caret\"></span></a>\n                    <ul class=\"dropdown-menu\">\n                        <li><a routerLink=\"/change_user_password\">Change user password</a></li>\n                        <li><a routerLink=\"/purchase_history\">Purchase History</a></li>\n                        <li role=\"separator\" class=\"divider\"></li>\n                        <li><a class=\"buttonlink\" (click)=\"userLogout()\">Logout</a></li>\n                    </ul>\n                </li>\n            </ng-container>\n            <ng-container *ngIf = \"!loggedIn\">\n                <li><a routerLink=\"/login\">Login</a></li>\n                <li><a routerLink=\"/signup\">Signup</a></li>\n            </ng-container>\n            <li><a routerLink=\"/cart\"><span class=\"glyphicon glyphicon-shopping-cart\"></span>Cart ({{totalQuantity}})</a></li>\n        </ul>\n    </div>\n</nav>\n"
+module.exports = "\n<!-- <div class=\"row\">\n  <div class=\"col-sm-6\">\n      <div class=\"page-header2\">\n          <h1>{{title}}</h1>\n      </div>\n  </div>\n</div> -->\n\n<nav class=\"navbar navbar-inverse navbar-fixed-top\">\n    <div class=\"container\">\n        <div class=\"navbar-header\">\n            <a routerLink=\"/home\" class=\"navbar-brand\">Bullion Coin Store</a>\n        </div>\n\n        <ul class=\"nav navbar-nav\">\n            <li class=\"active\"><a routerLink=\"/home\">Home</a></li>\n        </ul>\n\n        <ul class=\"nav navbar-nav navbar-right\">\n            <ng-container *ngIf = \"loggedIn\">\n                <li class=\"dropdown\">\n                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">User Account<span class=\"caret\"></span></a>\n                    <ul class=\"dropdown-menu\">\n                        <li><a routerLink=\"/change_user_password\">Change user password</a></li>\n                        <li><a routerLink=\"/purchase_history\">Purchase History</a></li>\n                        <li role=\"separator\" class=\"divider\"></li>\n                        <li><a class=\"buttonlink\" (click)=\"userLogout()\">Logout</a></li>\n                    </ul>\n                </li>\n            </ng-container>\n            <ng-container *ngIf = \"!loggedIn\">\n                <li><a routerLink=\"/login\">Login</a></li>\n                <li><a routerLink=\"/signup\">Signup</a></li>\n            </ng-container>\n            <li id=\"cartLink\" name=\"cartLink\"><a routerLink=\"/cart\"><span class=\"glyphicon glyphicon-shopping-cart\"></span>({{totalQuantity}})</a></li>\n        </ul>\n    </div>\n</nav>\n"
 
 /***/ }),
 
@@ -676,11 +738,9 @@ var HeaderComponent = (function () {
         this._userService.isLoggedIn()
             .subscribe(function (data) {
             if (data.authenticated) {
-                console.log('logged in');
                 _this.loggedIn = true;
             }
             else {
-                console.log('not logged in');
                 _this.loggedIn = false;
             }
         }, function (err) {
@@ -693,7 +753,7 @@ var HeaderComponent = (function () {
             .subscribe(function (data) {
             _this.checkAuthentication(); //Checks the authentication of the user to get the latest update so that Angular will re-render the page when it reloads the same URL.
             _this._router.navigate(['/home']);
-        }, function (err) { return console.log('error logging out'); }, function () { return console.log('logout complete'); });
+        }, function (err) { return console.log('Internal server error'); }, function () { return console.log('logout complete'); });
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
@@ -722,7 +782,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".page-header2 {\r\n    padding-bottom: 9px;\r\n    margin: 40px 0 20px;\r\n    /* border-bottom: 1px solid #eee; */\r\n}", ""]);
 
 // exports
 
@@ -735,7 +795,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/homepage/homepage.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"row\">\n<app-header [totalQuantity] = \"total_qty\"></app-header>\n</div>\n<br><br><br><br>\n<div class=\"row\">\n<div *ngFor = \"let coin of coins; let i=index\" id=\"listOfCoins\" name=\"listOfCoins\">\n  <div class=\"thumbnail col-sm-3\">\n    <img src=\"/assets/images/{{coin.imagePath}}\" alt=\"...\" class=\"img-responsive img-thumbnail\" style=\"width:75%\">\n    <div class=\"caption text-center\">\n      <h4>{{coin.title}}</h4>\n      <p>{{coin.description}}</p>\n      <div class=\"clearfix\">\n        <div class=\"price\">\n          <p>${{coin.price}}</p>\n        </div>\n        <input type=\"number\" class=\"text-center\" style=\"width: 4em\" size=\"3\" min = \"1\" max = \"999\" step=\"1\" id = \"itemQty\" name = \"itemQty\" value = \"1\" maxlength = \"3\" #itemQty>\n        <button class=\"btn btn-success\" role=\"button\" id=\"addItemButton\" name=\"addItemButton\" (click)=\"addItemToCart(coin._id, itemQty.value)\">Add</button>\n      </div>\n    </div>\n  </div>\n</div>\n</div>\n"
+module.exports = "<div class=\"row\">\n<app-header [totalQuantity] = \"total_qty\"></app-header>\n</div>\n<br><br><br><br>\n<div class=\"row\">\n<div *ngFor = \"let coin of coins; let i=index\" id=\"listOfCoins\" name=\"listOfCoins\">\n  <div class=\"thumbnail col-sm-3\">\n    <img src=\"/assets/images/{{coin.imagePath}}\" alt=\"...\" class=\"img-responsive img-thumbnail\" style=\"width:75%\">\n    <div class=\"caption text-center\">\n      <h4>{{coin.title}}</h4>\n      <p>{{coin.description}}</p>\n      <div class=\"clearfix\">\n        <div class=\"price\">\n          <p>${{coin.price}}</p>\n        </div>\n        <input type=\"number\" class=\"text-center\" style=\"width: 4em\" size=\"3\" min = \"1\" max = \"999\" step=\"1\" id = \"itemQty\" name = \"itemQty\" value = \"1\" maxlength = \"3\" #itemQty>\n        <button class=\"btn btn-success\" role=\"button\" id=\"addItemButton\" name=\"addItemButton\" (click)=\"addItemToCart(coin._id, itemQty.value)\">Add</button>\n      </div>\n    </div>\n  </div>\n</div>\n</div>"
 
 /***/ }),
 
@@ -798,7 +858,7 @@ var HomepageComponent = (function () {
             this.shoppingCart.addItem(coinID, itemQty)
                 .subscribe(function (data) {
                 _this.total_qty = data.msg.totalQty;
-            }, function (err) { return console.log('error adding coins to cart'); }, function () { return console.log('complete adding coins to cart'); });
+            }, function (err) { return console.log('error adding coins to cart'); }, function () { return console.log('complete adding item to cart'); });
         }
     };
     HomepageComponent = __decorate([
@@ -1646,7 +1706,7 @@ var ShoppingCartService = (function () {
     };
     ShoppingCartService.prototype.updateCart = function (updateCart) {
         var bodyString = JSON.stringify(updateCart);
-        console.log(bodyString);
+        //console.log(bodyString);
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]({ 'Content-Type': 'application/json' });
         return this._http.post(this.domain.url + '/cart_update', bodyString, { headers: headers, withCredentials: true })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__["a" /* Observable */].throw(error.json()); });
@@ -1766,7 +1826,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/shopping-cart/shopping-cart.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n<app-header [totalQuantity] = \"total_qty\"></app-header>\n</div>\n<br><br><br><br>\n<div class=\"row\">\n<fieldset>\n    <legend>Shopping Cart</legend>\n</fieldset>\n<ng-container *ngIf = \"total_qty!=0\"> <!-- if there are items in shopping cart -->\n<form [formGroup]=\"updateCartForm\" (ngSubmit)=\"updateCart(updateCartForm)\">\n    <div formArrayName=\"carts\">\n    <table class=\"table table-hover table-condensed\">\n        <thead>\n            <tr class=\"active\">\n                <th>Product</th>\n                <th>Quantity</th>\n                <th class=\"text-right\">Price</th>\n                <th class=\"text-right\">Total</th>\n                <th></th>\n            </tr>\n        </thead>\n        <tbody>\n            <ng-container *ngFor=\"let cart of updateCartForm.controls.carts.controls; let i=index\"> <!-- loops through the items to be displayed -->\n            <tr [formGroupName]=\"i\">\n                <td class=\"col-sm-5\">\n                    {{updateCartForm.controls.carts.controls[i].controls.productName.value}}\n                </td>\n                <td class=\"col-sm-2\">\n                    <input type=\"number\" min = \"1\" step = \"1\" max=\"999\" siz = \"3\" style=\"width: 5em\" class=\"text-center form-control\" id=\"productQuantity\" name=\"productQuantity\" formControlName=\"productQuantity\" #prdQty required>\n                </td>\n                <td class=\"col-sm-2 text-right\">\n                    ${{updateCartForm.controls.carts.controls[i].controls.productPrice.value}}\n                </td>\n                <td class=\"col-sm-2 text-right\">\n                    ${{prdQty.value * updateCartForm.controls.carts.controls[i].controls.productPrice.value}}\n                </td>\n                <td class=\"col-sm-1\">\n                    <a class=\"buttonlink pull-right\" (click)=\"removeAll(i)\"><span class=\"glyphicon glyphicon-trash\"></span></a>\n                </td>\n\n            </tr>\n            </ng-container>\n\n            <!--\n            <td class=\"col-sm-1 col-md-1\" style=\"text-align: center\">\n                <input type=\"number\" class=\"form-control\" id=\"item_quantity\" value=\"{{cartItem.qty}}\">\n            </td>\n            -->\n            <tr>\n                    <td class=\"col-sm-5\">   </td>\n                    <td class=\"col-sm-2\">   </td>\n                    <td class=\"col-sm-2\">   </td>\n                    <td class=\"col-sm-2\">   </td>\n                    <td class=\"col-sm-1\">   </td>\n            </tr>\n\n            <tr>\n                <td class=\"col-sm-5\">   </td>\n                <td class=\"col-sm-2\">   </td>\n                <td class=\"text-right col-sm-2\"><h5>Subtotal</h5></td>\n                <td class=\"text-right col-sm-2\"><h5><strong>${{cartTotalPrice}}</strong></h5></td>\n                <td class=\"col-sm-1\">   </td>\n            </tr>\n            <tr>\n                <td class=\"col-sm-5\">   </td>\n                <td class=\"col-sm-2\">   </td>\n                <td class=\"text-right col-sm-2\"><h5>Shipping</h5></td>\n                <td class=\"text-right col-sm-2\"><h5><strong>$0</strong></h5></td>\n                <td class=\"col-sm-1\">   </td>\n            </tr>\n            <tr>\n                <td class=\"col-sm-5\">   </td>\n                <td class=\"col-sm-2\">   </td>\n                <td class=\"text-right col-sm-2\"><h3>Grand Total</h3></td>\n                <td class=\"text-right col-sm-2\"><h3><strong>${{cartTotalPrice + 0}}</strong></h3></td>\n                <td class=\"col-sm-1\">   </td>\n            </tr>\n        </tbody>\n    </table>\n    </div>\n\n    <div class=\"row\">\n        <div class=\"col-sm-12\">\n            <a routerLink=\"/checkout\" type=\"button\" class=\"btn btn-success pull-right\">Checkout</a>\n            <button type=\"submit\" class=\"btn btn-default pull-right\"><span class=\"glyphicon glyphicon-shopping-cart\"></span>Update Cart</button>            \n        </div>\n    </div>\n</form>\n\n\n</ng-container>\n<ng-container *ngIf = \"total_qty==0\"> <!-- if there are no items in shopping cart -->\n<div class=\"row\">\n    <div class=\"col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3\">\n        <h2>No Items in Cart</h2>\n    </div>\n</div>\n</ng-container>\n</div>\n"
+module.exports = "<div class=\"row\">\n<app-header [totalQuantity] = \"total_qty\"></app-header>\n</div>\n<br><br><br><br>\n<div class=\"row\">\n<fieldset>\n    <legend>Shopping Cart</legend>\n</fieldset>\n<ng-container *ngIf = \"total_qty!=0\"> <!-- if there are items in shopping cart -->\n<form [formGroup]=\"updateCartForm\" (ngSubmit)=\"updateCart(updateCartForm)\">\n    <div formArrayName=\"carts\">\n    <table class=\"table table-hover table-condensed\">\n        <thead>\n            <tr class=\"active\">\n                <th>Product</th>\n                <th>Quantity</th>\n                <th class=\"text-right\">Price</th>\n                <th class=\"text-right\">Total</th>\n                <th></th>\n            </tr>\n        </thead>\n        <tbody>\n            <ng-container *ngFor=\"let cart of updateCartForm.controls.carts.controls; let i=index\"> <!-- loops through the items to be displayed -->\n            <tr [formGroupName]=\"i\">\n                <td class=\"col-sm-5\">\n                    <div class=\"media\">\n                        <div class=\"media-left\">\n                            <img class=\"media-object\" src=\"/assets/images/{{cartItems[i].item.imagePath}}\" style=\"width: 80px; height: 80px;\">\n                        </div>\n                        <div class=\"media-body\">\n                            {{updateCartForm.controls.carts.controls[i].controls.productName.value}}\n                        </div>\n                    </div>\n                </td>\n                <td class=\"col-sm-2\">\n                    <input type=\"number\" min = \"1\" step = \"1\" max=\"999\" siz = \"3\" style=\"width: 5em\" class=\"text-center form-control\" id=\"productQuantity\" name=\"productQuantity\" formControlName=\"productQuantity\" #prdQty required>\n                </td>\n                <td class=\"col-sm-2 text-right\">\n                    ${{updateCartForm.controls.carts.controls[i].controls.productPrice.value}}\n                </td>\n                <td class=\"col-sm-2 text-right\">\n                    ${{prdQty.value * updateCartForm.controls.carts.controls[i].controls.productPrice.value}}\n                </td>\n                <td class=\"col-sm-1\">\n                    <a class=\"buttonlink pull-right\" (click)=\"removeItem(i)\"><span class=\"glyphicon glyphicon-trash\"></span></a>\n                </td>\n\n            </tr>\n            </ng-container>\n\n            <!--\n            <td class=\"col-sm-1 col-md-1\" style=\"text-align: center\">\n                <input type=\"number\" class=\"form-control\" id=\"item_quantity\" value=\"{{cartItem.qty}}\">\n            </td>\n            -->\n            <tr>\n                    <td class=\"col-sm-5\">   </td>\n                    <td class=\"col-sm-2\">   </td>\n                    <td class=\"col-sm-2\">   </td>\n                    <td class=\"col-sm-2\">   </td>\n                    <td class=\"col-sm-1\">   </td>\n            </tr>\n\n            <tr>\n                <td class=\"col-sm-5\">   </td>\n                <td class=\"col-sm-2\">   </td>\n                <td class=\"text-right col-sm-2\"><h5>Subtotal</h5></td>\n                <td class=\"text-right col-sm-2\"><h5><strong>${{cartTotalPrice}}</strong></h5></td>\n                <td class=\"col-sm-1\">   </td>\n            </tr>\n            <tr>\n                <td class=\"col-sm-5\">   </td>\n                <td class=\"col-sm-2\">   </td>\n                <td class=\"text-right col-sm-2\"><h5>Shipping</h5></td>\n                <td class=\"text-right col-sm-2\"><h5><strong>$0</strong></h5></td>\n                <td class=\"col-sm-1\">   </td>\n            </tr>\n            <tr>\n                <td class=\"col-sm-5\">   </td>\n                <td class=\"col-sm-2\">   </td>\n                <td class=\"text-right col-sm-2\"><h3>Grand Total</h3></td>\n                <td class=\"text-right col-sm-2\"><h3><strong>${{cartTotalPrice + 0}}</strong></h3></td>\n                <td class=\"col-sm-1\">   </td>\n            </tr>\n        </tbody>\n    </table>\n    </div>\n\n    <div class=\"row\">\n        <div class=\"col-sm-12\">\n            <a routerLink=\"/checkout\" type=\"button\" class=\"btn btn-success pull-right\">Checkout</a>\n            <button type=\"submit\" class=\"btn btn-default pull-right\"><span class=\"glyphicon glyphicon-shopping-cart\"></span>Update Cart</button>            \n        </div>\n    </div>\n</form>\n\n\n</ng-container>\n<ng-container *ngIf = \"total_qty==0\"> <!-- if there are no items in shopping cart -->\n<div class=\"row\">\n    <div class=\"col-sm-12 text-center\">\n        <h2>No Items in Cart</h2>\n    </div>\n</div>\n</ng-container>\n</div>\n"
 
 /***/ }),
 
@@ -1802,6 +1862,7 @@ var ShoppingCartComponent = (function () {
         this.total_qty = 0; // this variable stores the total quantity
     }
     ShoppingCartComponent.prototype.ngOnInit = function () {
+        var _this = this;
         //initialize the form
         this.updateCartForm = this._fb.group({
             carts: this._fb.array([
@@ -1809,6 +1870,16 @@ var ShoppingCartComponent = (function () {
             ])
         });
         this.shoppingCartItems();
+        this.updateCartForm.valueChanges
+            .debounceTime(1500)
+            .distinctUntilChanged()
+            .subscribe(function (data) {
+            _this.cartTotalPrice = 0;
+            for (var i = 0; i < data.carts.length; i++) {
+                _this.cartTotalPrice = _this.cartTotalPrice + (data.carts[i].productQuantity * data.carts[i].productPrice);
+            }
+            //console.log(data);
+        });
     };
     ShoppingCartComponent.prototype.initCartForm = function () {
         return this._fb.group({
@@ -1846,7 +1917,7 @@ var ShoppingCartComponent = (function () {
                 //this.updateCartForm.value.carts[0].productName = this.cartItems[0].item.title;
                 _this.clearCartFirstItem();
                 _this.showCartItems(_this.cartItems);
-                console.log(_this.cartItems);
+                //console.log(this.cartItems);
             }
             else {
                 _this.clearCartFirstItem();
@@ -1856,7 +1927,7 @@ var ShoppingCartComponent = (function () {
             }
         }, function (err) { return console.log(err); }, function () { return console.log('Get Cart Items Complete'); });
     };
-    ShoppingCartComponent.prototype.removeAll = function (i) {
+    ShoppingCartComponent.prototype.removeItem = function (i) {
         // remove address from the list
         var control = this.updateCartForm.controls['carts'];
         control.removeAt(i);
@@ -1872,7 +1943,7 @@ var ShoppingCartComponent = (function () {
     };
     ShoppingCartComponent.prototype.updateCart = function (cartForm) {
         var _this = this;
-        console.log(cartForm);
+        //console.log(cartForm);
         if (!this.isFormValid(cartForm)) {
             console.log("Invalid Quantity");
         }
@@ -1887,7 +1958,6 @@ var ShoppingCartComponent = (function () {
                 if (data.success) {
                     _this.total_qty = data.totalQuantity;
                     _this.cartTotalPrice = data.totalPrice;
-                    console.log('update success');
                 }
             }, function (err) { return console.log(err); }, function () { return console.log('Update cart complete'); });
         }
