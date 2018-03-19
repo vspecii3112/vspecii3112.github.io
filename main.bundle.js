@@ -1373,7 +1373,7 @@ var coin = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DOMAIN; });
 var DOMAIN = {
-    url: "http://localhost:3333" // http://localhost:3333 , https://cstoreapi.herokuapp.com;
+    url: "https://cstoreapi.herokuapp.com" // http://localhost:3333 , https://cstoreapi.herokuapp.com;
 };
 
 
