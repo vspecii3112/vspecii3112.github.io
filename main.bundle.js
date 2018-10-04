@@ -198,6 +198,225 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/checkout/checkout-form/checkout-form.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ".panel-primary>.panel-heading {\r\n    color: #fff;\r\n    background-color: #337ab7;\r\n    border-color: #337ab7;\r\n}\r\n\r\n.panel-heading {\r\n    padding: 3px 10px;\r\n    border-bottom: 1px solid transparent;\r\n    border-top-left-radius: 3px;\r\n    border-top-right-radius: 3px;\r\n}\r\n\r\n.no-bottom-margin {\r\n    margin-bottom: 0px;\r\n}\r\n\r\n.border-outline {\r\n    outline: 1px solid #ddd;\r\n}\r\n\r\n.padding-top {\r\n    padding-top: 25px;\r\n}\r\n\r\n.padding-bottom {\r\n    padding-bottom: 25px;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/checkout/checkout-form/checkout-form.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container padding-top padding-bottom\">\n\t<div class=\"row text-center\">\n\t\t<h3>Checkout</h3>\n\t</div><br>\n\t<form class=\"form-horizontal\" [formGroup]=\"shoppingCartCheckoutForm\" (ngSubmit)=\"createToken(shoppingCartCheckoutForm)\" id=\"shoppingCartCheckoutForm\" name=\"shoppingCartCheckoutForm\">\n\n\t<div class=\"col-sm-7\">\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"panel panel-default\">\n\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t  <strong>Shipping Address</strong><br><br>\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Full Name <font color=\"red\">*</font></label>\n\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t  <input class=\"form-control\" type=\"text\" id=\"name\" name=\"name\" formControlName=\"name\">\n\t\t\t\t\t\t  <div class=\"text-danger\">\n\t\t\t\t\t\t\t{{nameMsg}}\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t  </div>\n\t\t\t\t\t  <fieldset formGroupName=\"shippingAddress\">\n\t\t\t\t\t  <div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Address Line 1 <font color=\"red\">*</font></label>\n\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t  <input class=\"form-control\" type=\"text\" id=\"addressLine1\" name=\"addressLine1\" formControlName=\"addressLine1\">\n\t\t\t\t\t\t  <div class=\"text-danger\">\n\t\t\t\t\t\t\t{{addressLine1Msg}}\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t  </div>\n\t\t\t  \n\t\t\t\t\t  <div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Address Line 2</label>\n\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t  <input class=\"form-control\" type=\"text\" id=\"addressLine2\" name=\"addressLine2\" formControlName=\"addressLine2\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t  </div>\n\t\t\t  \n\t\t\t\t\t  <div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">City<font color=\"red\">*</font></label>\n\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t  <input class=\"form-control\" type=\"text\" id=\"city\" name=\"city\" formControlName=\"city\">\n\t\t\t\t\t\t  <div class=\"text-danger\">\n\t\t\t\t\t\t\t{{cityMsg}}\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t  </div>\n\t\t\t  \n\t\t\t  \n\t\t\t\t\t  <div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">State/Province</label>\n\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t  <input class=\"form-control\" type=\"text\" id=\"state\" name=\"state\" formControlName=\"state\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t  </div>\n\t\t\t  \n\t\t\t\t\t  <div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Zip/Postal Code</label>\n\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t  <input class=\"form-control\" type=\"text\" id=\"zip\" name=\"zip\" formControlName=\"zip\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t  </div>\n\t\t\t  \n\t\t\t\t\t  <div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Country <font color=\"red\">*</font></label>\n\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t  <select class=\"form-control\" id=\"country\" name=\"country\" formControlName=\"country\">\n\t\t\t\t\t\t\t  <option value=\"Afghanistan\" title=\"Afghanistan\">Afghanistan</option>\n\t\t\t\t\t\t\t  <option value=\"Åland Islands\" title=\"Åland Islands\">Åland Islands</option>\n\t\t\t\t\t\t\t  <option value=\"Albania\" title=\"Albania\">Albania</option>\n\t\t\t\t\t\t\t  <option value=\"Algeria\" title=\"Algeria\">Algeria</option>\n\t\t\t\t\t\t\t  <option value=\"American Samoa\" title=\"American Samoa\">American Samoa</option>\n\t\t\t\t\t\t\t  <option value=\"Andorra\" title=\"Andorra\">Andorra</option>\n\t\t\t\t\t\t\t  <option value=\"Angola\" title=\"Angola\">Angola</option>\n\t\t\t\t\t\t\t  <option value=\"Anguilla\" title=\"Anguilla\">Anguilla</option>\n\t\t\t\t\t\t\t  <option value=\"Antarctica\" title=\"Antarctica\">Antarctica</option>\n\t\t\t\t\t\t\t  <option value=\"Antigua and Barbuda\" title=\"Antigua and Barbuda\">Antigua and Barbuda</option>\n\t\t\t\t\t\t\t  <option value=\"Argentina\" title=\"Argentina\">Argentina</option>\n\t\t\t\t\t\t\t  <option value=\"Armenia\" title=\"Armenia\">Armenia</option>\n\t\t\t\t\t\t\t  <option value=\"Aruba\" title=\"Aruba\">Aruba</option>\n\t\t\t\t\t\t\t  <option value=\"Australia\" title=\"Australia\">Australia</option>\n\t\t\t\t\t\t\t  <option value=\"Austria\" title=\"Austria\">Austria</option>\n\t\t\t\t\t\t\t  <option value=\"Azerbaijan\" title=\"Azerbaijan\">Azerbaijan</option>\n\t\t\t\t\t\t\t  <option value=\"Bahamas\" title=\"Bahamas\">Bahamas</option>\n\t\t\t\t\t\t\t  <option value=\"Bahrain\" title=\"Bahrain\">Bahrain</option>\n\t\t\t\t\t\t\t  <option value=\"Bangladesh\" title=\"Bangladesh\">Bangladesh</option>\n\t\t\t\t\t\t\t  <option value=\"Barbados\" title=\"Barbados\">Barbados</option>\n\t\t\t\t\t\t\t  <option value=\"Belarus\" title=\"Belarus\">Belarus</option>\n\t\t\t\t\t\t\t  <option value=\"Belgium\" title=\"Belgium\">Belgium</option>\n\t\t\t\t\t\t\t  <option value=\"Belize\" title=\"Belize\">Belize</option>\n\t\t\t\t\t\t\t  <option value=\"Benin\" title=\"Benin\">Benin</option>\n\t\t\t\t\t\t\t  <option value=\"Bermuda\" title=\"Bermuda\">Bermuda</option>\n\t\t\t\t\t\t\t  <option value=\"Bhutan\" title=\"Bhutan\">Bhutan</option>\n\t\t\t\t\t\t\t  <option value=\"Bolivia, Plurinational State of\" title=\"Bolivia, Plurinational State of\">Bolivia, Plurinational State of</option>\n\t\t\t\t\t\t\t  <option value=\"Bonaire, Sint Eustatius and Saba\" title=\"Bonaire, Sint Eustatius and Saba\">Bonaire, Sint Eustatius and Saba</option>\n\t\t\t\t\t\t\t  <option value=\"Bosnia and Herzegovina\" title=\"Bosnia and Herzegovina\">Bosnia and Herzegovina</option>\n\t\t\t\t\t\t\t  <option value=\"Botswana\" title=\"Botswana\">Botswana</option>\n\t\t\t\t\t\t\t  <option value=\"Bouvet Island\" title=\"Bouvet Island\">Bouvet Island</option>\n\t\t\t\t\t\t\t  <option value=\"Brazil\" title=\"Brazil\">Brazil</option>\n\t\t\t\t\t\t\t  <option value=\"British Indian Ocean Territory\" title=\"British Indian Ocean Territory\">British Indian Ocean Territory</option>\n\t\t\t\t\t\t\t  <option value=\"Brunei Darussalam\" title=\"Brunei Darussalam\">Brunei Darussalam</option>\n\t\t\t\t\t\t\t  <option value=\"Bulgaria\" title=\"Bulgaria\">Bulgaria</option>\n\t\t\t\t\t\t\t  <option value=\"Burkina Faso\" title=\"Burkina Faso\">Burkina Faso</option>\n\t\t\t\t\t\t\t  <option value=\"Burundi\" title=\"Burundi\">Burundi</option>\n\t\t\t\t\t\t\t  <option value=\"Cambodia\" title=\"Cambodia\">Cambodia</option>\n\t\t\t\t\t\t\t  <option value=\"Cameroon\" title=\"Cameroon\">Cameroon</option>\n\t\t\t\t\t\t\t  <option value=\"Canada\" title=\"Canada\">Canada</option>\n\t\t\t\t\t\t\t  <option value=\"Cape Verde\" title=\"Cape Verde\">Cape Verde</option>\n\t\t\t\t\t\t\t  <option value=\"Cayman Islands\" title=\"Cayman Islands\">Cayman Islands</option>\n\t\t\t\t\t\t\t  <option value=\"Central African Republic\" title=\"Central African Republic\">Central African Republic</option>\n\t\t\t\t\t\t\t  <option value=\"Chad\" title=\"Chad\">Chad</option>\n\t\t\t\t\t\t\t  <option value=\"Chile\" title=\"Chile\">Chile</option>\n\t\t\t\t\t\t\t  <option value=\"China\" title=\"China\">China</option>\n\t\t\t\t\t\t\t  <option value=\"Christmas Island\" title=\"Christmas Island\">Christmas Island</option>\n\t\t\t\t\t\t\t  <option value=\"Cocos (Keeling) Islands\" title=\"Cocos (Keeling) Islands\">Cocos (Keeling) Islands</option>\n\t\t\t\t\t\t\t  <option value=\"Colombia\" title=\"Colombia\">Colombia</option>\n\t\t\t\t\t\t\t  <option value=\"Comoros\" title=\"Comoros\">Comoros</option>\n\t\t\t\t\t\t\t  <option value=\"Congo\" title=\"Congo\">Congo</option>\n\t\t\t\t\t\t\t  <option value=\"Congo, the Democratic Republic of the\" title=\"Congo, the Democratic Republic of the\">Congo, the Democratic Republic of the</option>\n\t\t\t\t\t\t\t  <option value=\"Cook Islands\" title=\"Cook Islands\">Cook Islands</option>\n\t\t\t\t\t\t\t  <option value=\"Costa Rica\" title=\"Costa Rica\">Costa Rica</option>\n\t\t\t\t\t\t\t  <option value=\"Côte d'Ivoire\" title=\"Côte d'Ivoire\">Côte d'Ivoire</option>\n\t\t\t\t\t\t\t  <option value=\"Croatia\" title=\"Croatia\">Croatia</option>\n\t\t\t\t\t\t\t  <option value=\"Cuba\" title=\"Cuba\">Cuba</option>\n\t\t\t\t\t\t\t  <option value=\"Curaçao\" title=\"Curaçao\">Curaçao</option>\n\t\t\t\t\t\t\t  <option value=\"Cyprus\" title=\"Cyprus\">Cyprus</option>\n\t\t\t\t\t\t\t  <option value=\"Czech Republic\" title=\"Czech Republic\">Czech Republic</option>\n\t\t\t\t\t\t\t  <option value=\"Denmark\" title=\"Denmark\">Denmark</option>\n\t\t\t\t\t\t\t  <option value=\"Djibouti\" title=\"Djibouti\">Djibouti</option>\n\t\t\t\t\t\t\t  <option value=\"Dominica\" title=\"Dominica\">Dominica</option>\n\t\t\t\t\t\t\t  <option value=\"Dominican Republic\" title=\"Dominican Republic\">Dominican Republic</option>\n\t\t\t\t\t\t\t  <option value=\"Ecuador\" title=\"Ecuador\">Ecuador</option>\n\t\t\t\t\t\t\t  <option value=\"Egypt\" title=\"Egypt\">Egypt</option>\n\t\t\t\t\t\t\t  <option value=\"El Salvador\" title=\"El Salvador\">El Salvador</option>\n\t\t\t\t\t\t\t  <option value=\"Equatorial Guinea\" title=\"Equatorial Guinea\">Equatorial Guinea</option>\n\t\t\t\t\t\t\t  <option value=\"Eritrea\" title=\"Eritrea\">Eritrea</option>\n\t\t\t\t\t\t\t  <option value=\"Estonia\" title=\"Estonia\">Estonia</option>\n\t\t\t\t\t\t\t  <option value=\"Ethiopia\" title=\"Ethiopia\">Ethiopia</option>\n\t\t\t\t\t\t\t  <option value=\"Falkland Islands (Malvinas)\" title=\"Falkland Islands (Malvinas)\">Falkland Islands (Malvinas)</option>\n\t\t\t\t\t\t\t  <option value=\"Faroe Islands\" title=\"Faroe Islands\">Faroe Islands</option>\n\t\t\t\t\t\t\t  <option value=\"Fiji\" title=\"Fiji\">Fiji</option>\n\t\t\t\t\t\t\t  <option value=\"Finland\" title=\"Finland\">Finland</option>\n\t\t\t\t\t\t\t  <option value=\"France\" title=\"France\">France</option>\n\t\t\t\t\t\t\t  <option value=\"French Guiana\" title=\"French Guiana\">French Guiana</option>\n\t\t\t\t\t\t\t  <option value=\"French Polynesia\" title=\"French Polynesia\">French Polynesia</option>\n\t\t\t\t\t\t\t  <option value=\"French Southern Territories\" title=\"French Southern Territories\">French Southern Territories</option>\n\t\t\t\t\t\t\t  <option value=\"Gabon\" title=\"Gabon\">Gabon</option>\n\t\t\t\t\t\t\t  <option value=\"Gambia\" title=\"Gambia\">Gambia</option>\n\t\t\t\t\t\t\t  <option value=\"Georgia\" title=\"Georgia\">Georgia</option>\n\t\t\t\t\t\t\t  <option value=\"Germany\" title=\"Germany\">Germany</option>\n\t\t\t\t\t\t\t  <option value=\"Ghana\" title=\"Ghana\">Ghana</option>\n\t\t\t\t\t\t\t  <option value=\"Gibraltar\" title=\"Gibraltar\">Gibraltar</option>\n\t\t\t\t\t\t\t  <option value=\"Greece\" title=\"Greece\">Greece</option>\n\t\t\t\t\t\t\t  <option value=\"Greenland\" title=\"Greenland\">Greenland</option>\n\t\t\t\t\t\t\t  <option value=\"Grenada\" title=\"Grenada\">Grenada</option>\n\t\t\t\t\t\t\t  <option value=\"Guadeloupe\" title=\"Guadeloupe\">Guadeloupe</option>\n\t\t\t\t\t\t\t  <option value=\"Guam\" title=\"Guam\">Guam</option>\n\t\t\t\t\t\t\t  <option value=\"Guatemala\" title=\"Guatemala\">Guatemala</option>\n\t\t\t\t\t\t\t  <option value=\"Guernsey\" title=\"Guernsey\">Guernsey</option>\n\t\t\t\t\t\t\t  <option value=\"Guinea\" title=\"Guinea\">Guinea</option>\n\t\t\t\t\t\t\t  <option value=\"Guinea-Bissau\" title=\"Guinea-Bissau\">Guinea-Bissau</option>\n\t\t\t\t\t\t\t  <option value=\"Guyana\" title=\"Guyana\">Guyana</option>\n\t\t\t\t\t\t\t  <option value=\"Haiti\" title=\"Haiti\">Haiti</option>\n\t\t\t\t\t\t\t  <option value=\"Heard Island and McDonald Islands\" title=\"Heard Island and McDonald Islands\">Heard Island and McDonald Islands</option>\n\t\t\t\t\t\t\t  <option value=\"Holy See (Vatican City State)\" title=\"Holy See (Vatican City State)\">Holy See (Vatican City State)</option>\n\t\t\t\t\t\t\t  <option value=\"Honduras\" title=\"Honduras\">Honduras</option>\n\t\t\t\t\t\t\t  <option value=\"Hong Kong\" title=\"Hong Kong\">Hong Kong</option>\n\t\t\t\t\t\t\t  <option value=\"Hungary\" title=\"Hungary\">Hungary</option>\n\t\t\t\t\t\t\t  <option value=\"Iceland\" title=\"Iceland\">Iceland</option>\n\t\t\t\t\t\t\t  <option value=\"India\" title=\"India\">India</option>\n\t\t\t\t\t\t\t  <option value=\"Indonesia\" title=\"Indonesia\">Indonesia</option>\n\t\t\t\t\t\t\t  <option value=\"Iran, Islamic Republic of\" title=\"Iran, Islamic Republic of\">Iran, Islamic Republic of</option>\n\t\t\t\t\t\t\t  <option value=\"Iraq\" title=\"Iraq\">Iraq</option>\n\t\t\t\t\t\t\t  <option value=\"Ireland\" title=\"Ireland\">Ireland</option>\n\t\t\t\t\t\t\t  <option value=\"Isle of Man\" title=\"Isle of Man\">Isle of Man</option>\n\t\t\t\t\t\t\t  <option value=\"Israel\" title=\"Israel\">Israel</option>\n\t\t\t\t\t\t\t  <option value=\"Italy\" title=\"Italy\">Italy</option>\n\t\t\t\t\t\t\t  <option value=\"Jamaica\" title=\"Jamaica\">Jamaica</option>\n\t\t\t\t\t\t\t  <option value=\"Japan\" title=\"Japan\">Japan</option>\n\t\t\t\t\t\t\t  <option value=\"Jersey\" title=\"Jersey\">Jersey</option>\n\t\t\t\t\t\t\t  <option value=\"Jordan\" title=\"Jordan\">Jordan</option>\n\t\t\t\t\t\t\t  <option value=\"Kazakhstan\" title=\"Kazakhstan\">Kazakhstan</option>\n\t\t\t\t\t\t\t  <option value=\"Kenya\" title=\"Kenya\">Kenya</option>\n\t\t\t\t\t\t\t  <option value=\"Kiribati\" title=\"Kiribati\">Kiribati</option>\n\t\t\t\t\t\t\t  <option value=\"Korea, Democratic People's Republic of\" title=\"Korea, Democratic People's Republic of\">Korea, Democratic People's Republic of</option>\n\t\t\t\t\t\t\t  <option value=\"Korea, Republic of\" title=\"Korea, Republic of\">Korea, Republic of</option>\n\t\t\t\t\t\t\t  <option value=\"Kuwait\" title=\"Kuwait\">Kuwait</option>\n\t\t\t\t\t\t\t  <option value=\"Kyrgyzstan\" title=\"Kyrgyzstan\">Kyrgyzstan</option>\n\t\t\t\t\t\t\t  <option value=\"Lao People's Democratic Republic\" title=\"Lao People's Democratic Republic\">Lao People's Democratic Republic</option>\n\t\t\t\t\t\t\t  <option value=\"Latvia\" title=\"Latvia\">Latvia</option>\n\t\t\t\t\t\t\t  <option value=\"Lebanon\" title=\"Lebanon\">Lebanon</option>\n\t\t\t\t\t\t\t  <option value=\"Lesotho\" title=\"Lesotho\">Lesotho</option>\n\t\t\t\t\t\t\t  <option value=\"Liberia\" title=\"Liberia\">Liberia</option>\n\t\t\t\t\t\t\t  <option value=\"Libya\" title=\"Libya\">Libya</option>\n\t\t\t\t\t\t\t  <option value=\"Liechtenstein\" title=\"Liechtenstein\">Liechtenstein</option>\n\t\t\t\t\t\t\t  <option value=\"Lithuania\" title=\"Lithuania\">Lithuania</option>\n\t\t\t\t\t\t\t  <option value=\"Luxembourg\" title=\"Luxembourg\">Luxembourg</option>\n\t\t\t\t\t\t\t  <option value=\"Macao\" title=\"Macao\">Macao</option>\n\t\t\t\t\t\t\t  <option value=\"Macedonia, the former Yugoslav Republic of\" title=\"Macedonia, the former Yugoslav Republic of\">Macedonia, the former Yugoslav Republic of</option>\n\t\t\t\t\t\t\t  <option value=\"Madagascar\" title=\"Madagascar\">Madagascar</option>\n\t\t\t\t\t\t\t  <option value=\"Malawi\" title=\"Malawi\">Malawi</option>\n\t\t\t\t\t\t\t  <option value=\"Malaysia\" title=\"Malaysia\">Malaysia</option>\n\t\t\t\t\t\t\t  <option value=\"Maldives\" title=\"Maldives\">Maldives</option>\n\t\t\t\t\t\t\t  <option value=\"Mali\" title=\"Mali\">Mali</option>\n\t\t\t\t\t\t\t  <option value=\"Malta\" title=\"Malta\">Malta</option>\n\t\t\t\t\t\t\t  <option value=\"Marshall Islands\" title=\"Marshall Islands\">Marshall Islands</option>\n\t\t\t\t\t\t\t  <option value=\"Martinique\" title=\"Martinique\">Martinique</option>\n\t\t\t\t\t\t\t  <option value=\"Mauritania\" title=\"Mauritania\">Mauritania</option>\n\t\t\t\t\t\t\t  <option value=\"Mauritius\" title=\"Mauritius\">Mauritius</option>\n\t\t\t\t\t\t\t  <option value=\"Mayotte\" title=\"Mayotte\">Mayotte</option>\n\t\t\t\t\t\t\t  <option value=\"Mexico\" title=\"Mexico\">Mexico</option>\n\t\t\t\t\t\t\t  <option value=\"Micronesia, Federated States of\" title=\"Micronesia, Federated States of\">Micronesia, Federated States of</option>\n\t\t\t\t\t\t\t  <option value=\"Moldova, Republic of\" title=\"Moldova, Republic of\">Moldova, Republic of</option>\n\t\t\t\t\t\t\t  <option value=\"Monaco\" title=\"Monaco\">Monaco</option>\n\t\t\t\t\t\t\t  <option value=\"Mongolia\" title=\"Mongolia\">Mongolia</option>\n\t\t\t\t\t\t\t  <option value=\"Montenegro\" title=\"Montenegro\">Montenegro</option>\n\t\t\t\t\t\t\t  <option value=\"Montserrat\" title=\"Montserrat\">Montserrat</option>\n\t\t\t\t\t\t\t  <option value=\"Morocco\" title=\"Morocco\">Morocco</option>\n\t\t\t\t\t\t\t  <option value=\"Mozambique\" title=\"Mozambique\">Mozambique</option>\n\t\t\t\t\t\t\t  <option value=\"Myanmar\" title=\"Myanmar\">Myanmar</option>\n\t\t\t\t\t\t\t  <option value=\"Namibia\" title=\"Namibia\">Namibia</option>\n\t\t\t\t\t\t\t  <option value=\"Nauru\" title=\"Nauru\">Nauru</option>\n\t\t\t\t\t\t\t  <option value=\"Nepal\" title=\"Nepal\">Nepal</option>\n\t\t\t\t\t\t\t  <option value=\"Netherlands\" title=\"Netherlands\">Netherlands</option>\n\t\t\t\t\t\t\t  <option value=\"New Caledonia\" title=\"New Caledonia\">New Caledonia</option>\n\t\t\t\t\t\t\t  <option value=\"New Zealand\" title=\"New Zealand\">New Zealand</option>\n\t\t\t\t\t\t\t  <option value=\"Nicaragua\" title=\"Nicaragua\">Nicaragua</option>\n\t\t\t\t\t\t\t  <option value=\"Niger\" title=\"Niger\">Niger</option>\n\t\t\t\t\t\t\t  <option value=\"Nigeria\" title=\"Nigeria\">Nigeria</option>\n\t\t\t\t\t\t\t  <option value=\"Niue\" title=\"Niue\">Niue</option>\n\t\t\t\t\t\t\t  <option value=\"Norfolk Island\" title=\"Norfolk Island\">Norfolk Island</option>\n\t\t\t\t\t\t\t  <option value=\"Northern Mariana Islands\" title=\"Northern Mariana Islands\">Northern Mariana Islands</option>\n\t\t\t\t\t\t\t  <option value=\"Norway\" title=\"Norway\">Norway</option>\n\t\t\t\t\t\t\t  <option value=\"Oman\" title=\"Oman\">Oman</option>\n\t\t\t\t\t\t\t  <option value=\"Pakistan\" title=\"Pakistan\">Pakistan</option>\n\t\t\t\t\t\t\t  <option value=\"Palau\" title=\"Palau\">Palau</option>\n\t\t\t\t\t\t\t  <option value=\"Palestinian Territory\" title=\"Palestinian Territory\">Palestinian Territory</option>\n\t\t\t\t\t\t\t  <option value=\"Panama\" title=\"Panama\">Panama</option>\n\t\t\t\t\t\t\t  <option value=\"Papua New Guinea\" title=\"Papua New Guinea\">Papua New Guinea</option>\n\t\t\t\t\t\t\t  <option value=\"Paraguay\" title=\"Paraguay\">Paraguay</option>\n\t\t\t\t\t\t\t  <option value=\"Peru\" title=\"Peru\">Peru</option>\n\t\t\t\t\t\t\t  <option value=\"Philippines\" title=\"Philippines\">Philippines</option>\n\t\t\t\t\t\t\t  <option value=\"Pitcairn\" title=\"Pitcairn\">Pitcairn</option>\n\t\t\t\t\t\t\t  <option value=\"Poland\" title=\"Poland\">Poland</option>\n\t\t\t\t\t\t\t  <option value=\"Portugal\" title=\"Portugal\">Portugal</option>\n\t\t\t\t\t\t\t  <option value=\"Puerto Rico\" title=\"Puerto Rico\">Puerto Rico</option>\n\t\t\t\t\t\t\t  <option value=\"Qatar\" title=\"Qatar\">Qatar</option>\n\t\t\t\t\t\t\t  <option value=\"Réunion\" title=\"Réunion\">Réunion</option>\n\t\t\t\t\t\t\t  <option value=\"Romania\" title=\"Romania\">Romania</option>\n\t\t\t\t\t\t\t  <option value=\"Russian Federation\" title=\"Russian Federation\">Russian Federation</option>\n\t\t\t\t\t\t\t  <option value=\"Rwanda\" title=\"Rwanda\">Rwanda</option>\n\t\t\t\t\t\t\t  <option value=\"Saint Barthélemy\" title=\"Saint Barthélemy\">Saint Barthélemy</option>\n\t\t\t\t\t\t\t  <option value=\"Saint Helena, Ascension and Tristan da Cunha\" title=\"Saint Helena, Ascension and Tristan da Cunha\">Saint Helena, Ascension and Tristan da Cunha</option>\n\t\t\t\t\t\t\t  <option value=\"Saint Kitts and Nevis\" title=\"Saint Kitts and Nevis\">Saint Kitts and Nevis</option>\n\t\t\t\t\t\t\t  <option value=\"Saint Lucia\" title=\"Saint Lucia\">Saint Lucia</option>\n\t\t\t\t\t\t\t  <option value=\"Saint Martin (French part)\" title=\"Saint Martin (French part)\">Saint Martin (French part)</option>\n\t\t\t\t\t\t\t  <option value=\"Saint Pierre and Miquelon\" title=\"Saint Pierre and Miquelon\">Saint Pierre and Miquelon</option>\n\t\t\t\t\t\t\t  <option value=\"Saint Vincent and the Grenadines\" title=\"Saint Vincent and the Grenadines\">Saint Vincent and the Grenadines</option>\n\t\t\t\t\t\t\t  <option value=\"Samoa\" title=\"Samoa\">Samoa</option>\n\t\t\t\t\t\t\t  <option value=\"San Marino\" title=\"San Marino\">San Marino</option>\n\t\t\t\t\t\t\t  <option value=\"Sao Tome and Principe\" title=\"Sao Tome and Principe\">Sao Tome and Principe</option>\n\t\t\t\t\t\t\t  <option value=\"Saudi Arabia\" title=\"Saudi Arabia\">Saudi Arabia</option>\n\t\t\t\t\t\t\t  <option value=\"Senegal\" title=\"Senegal\">Senegal</option>\n\t\t\t\t\t\t\t  <option value=\"Serbia\" title=\"Serbia\">Serbia</option>\n\t\t\t\t\t\t\t  <option value=\"Seychelles\" title=\"Seychelles\">Seychelles</option>\n\t\t\t\t\t\t\t  <option value=\"Sierra Leone\" title=\"Sierra Leone\">Sierra Leone</option>\n\t\t\t\t\t\t\t  <option value=\"Singapore\" title=\"Singapore\">Singapore</option>\n\t\t\t\t\t\t\t  <option value=\"Sint Maarten (Dutch part)\" title=\"Sint Maarten (Dutch part)\">Sint Maarten (Dutch part)</option>\n\t\t\t\t\t\t\t  <option value=\"Slovakia\" title=\"Slovakia\">Slovakia</option>\n\t\t\t\t\t\t\t  <option value=\"Slovenia\" title=\"Slovenia\">Slovenia</option>\n\t\t\t\t\t\t\t  <option value=\"Solomon Islands\" title=\"Solomon Islands\">Solomon Islands</option>\n\t\t\t\t\t\t\t  <option value=\"Somalia\" title=\"Somalia\">Somalia</option>\n\t\t\t\t\t\t\t  <option value=\"South Africa\" title=\"South Africa\">South Africa</option>\n\t\t\t\t\t\t\t  <option value=\"South Georgia and the South Sandwich Islands\" title=\"South Georgia and the South Sandwich Islands\">South Georgia and the South Sandwich Islands</option>\n\t\t\t\t\t\t\t  <option value=\"South Sudan\" title=\"South Sudan\">South Sudan</option>\n\t\t\t\t\t\t\t  <option value=\"Spain\" title=\"Spain\">Spain</option>\n\t\t\t\t\t\t\t  <option value=\"Sri Lanka\" title=\"Sri Lanka\">Sri Lanka</option>\n\t\t\t\t\t\t\t  <option value=\"Sudan\" title=\"Sudan\">Sudan</option>\n\t\t\t\t\t\t\t  <option value=\"Suriname\" title=\"Suriname\">Suriname</option>\n\t\t\t\t\t\t\t  <option value=\"Svalbard and Jan Mayen\" title=\"Svalbard and Jan Mayen\">Svalbard and Jan Mayen</option>\n\t\t\t\t\t\t\t  <option value=\"Swaziland\" title=\"Swaziland\">Swaziland</option>\n\t\t\t\t\t\t\t  <option value=\"Sweden\" title=\"Sweden\">Sweden</option>\n\t\t\t\t\t\t\t  <option value=\"Switzerland\" title=\"Switzerland\">Switzerland</option>\n\t\t\t\t\t\t\t  <option value=\"Syrian Arab Republic\" title=\"Syrian Arab Republic\">Syrian Arab Republic</option>\n\t\t\t\t\t\t\t  <option value=\"Taiwan, Province of China\" title=\"Taiwan, Province of China\">Taiwan, Province of China</option>\n\t\t\t\t\t\t\t  <option value=\"Tajikistan\" title=\"Tajikistan\">Tajikistan</option>\n\t\t\t\t\t\t\t  <option value=\"Tanzania, United Republic of\" title=\"Tanzania, United Republic of\">Tanzania, United Republic of</option>\n\t\t\t\t\t\t\t  <option value=\"Thailand\" title=\"Thailand\">Thailand</option>\n\t\t\t\t\t\t\t  <option value=\"Timor-Leste\" title=\"Timor-Leste\">Timor-Leste</option>\n\t\t\t\t\t\t\t  <option value=\"Togo\" title=\"Togo\">Togo</option>\n\t\t\t\t\t\t\t  <option value=\"Tokelau\" title=\"Tokelau\">Tokelau</option>\n\t\t\t\t\t\t\t  <option value=\"Tonga\" title=\"Tonga\">Tonga</option>\n\t\t\t\t\t\t\t  <option value=\"Trinidad and Tobago\" title=\"Trinidad and Tobago\">Trinidad and Tobago</option>\n\t\t\t\t\t\t\t  <option value=\"Tunisia\" title=\"Tunisia\">Tunisia</option>\n\t\t\t\t\t\t\t  <option value=\"Turkey\" title=\"Turkey\">Turkey</option>\n\t\t\t\t\t\t\t  <option value=\"Turkmenistan\" title=\"Turkmenistan\">Turkmenistan</option>\n\t\t\t\t\t\t\t  <option value=\"Turks and Caicos Islands\" title=\"Turks and Caicos Islands\">Turks and Caicos Islands</option>\n\t\t\t\t\t\t\t  <option value=\"Tuvalu\" title=\"Tuvalu\">Tuvalu</option>\n\t\t\t\t\t\t\t  <option value=\"Uganda\" title=\"Uganda\">Uganda</option>\n\t\t\t\t\t\t\t  <option value=\"Ukraine\" title=\"Ukraine\">Ukraine</option>\n\t\t\t\t\t\t\t  <option value=\"United Arab Emirates\" title=\"United Arab Emirates\">United Arab Emirates</option>\n\t\t\t\t\t\t\t  <option value=\"United Kingdom\" title=\"United Kingdom\">United Kingdom</option>\n\t\t\t\t\t\t\t  <option value=\"United States\" title=\"United States\">United States</option>\n\t\t\t\t\t\t\t  <option value=\"United States Minor Outlying Islands\" title=\"United States Minor Outlying Islands\">United States Minor Outlying Islands</option>\n\t\t\t\t\t\t\t  <option value=\"Uruguay\" title=\"Uruguay\">Uruguay</option>\n\t\t\t\t\t\t\t  <option value=\"Uzbekistan\" title=\"Uzbekistan\">Uzbekistan</option>\n\t\t\t\t\t\t\t  <option value=\"Vanuatu\" title=\"Vanuatu\">Vanuatu</option>\n\t\t\t\t\t\t\t  <option value=\"Venezuela, Bolivarian Republic of\" title=\"Venezuela, Bolivarian Republic of\">Venezuela, Bolivarian Republic of</option>\n\t\t\t\t\t\t\t  <option value=\"Viet Nam\" title=\"Viet Nam\">Viet Nam</option>\n\t\t\t\t\t\t\t  <option value=\"Virgin Islands, British\" title=\"Virgin Islands, British\">Virgin Islands, British</option>\n\t\t\t\t\t\t\t  <option value=\"Virgin Islands, U.S.\" title=\"Virgin Islands, U.S.\">Virgin Islands, U.S.</option>\n\t\t\t\t\t\t\t  <option value=\"Wallis and Futuna\" title=\"Wallis and Futuna\">Wallis and Futuna</option>\n\t\t\t\t\t\t\t  <option value=\"Western Sahara\" title=\"Western Sahara\">Western Sahara</option>\n\t\t\t\t\t\t\t  <option value=\"Yemen\" title=\"Yemen\">Yemen</option>\n\t\t\t\t\t\t\t  <option value=\"Zambia\" title=\"Zambia\">Zambia</option>\n\t\t\t\t\t\t\t  <option value=\"Zimbabwe\" title=\"Zimbabwe\">Zimbabwe</option>\n\t\t\t\t\t\t  </select>\n\t\t\t\t\t\t  <div class=\"text-danger\">\n\t\t\t\t\t\t\t{{countryMsg}}\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t  </div>\n\t\t\t\t\t  </fieldset>\n\t\t\t\t</div>\n\t\t\t  </div>\n\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"panel panel-default\">\n\t\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t\t\t\t\t<strong>Credit Card</strong>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t<ng-container *ngIf=\"cardMsg\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"alert alert-danger text-center\">\n\t\t\t\t\t\t\t\t\t\t\t\t  {{cardMsg}}\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t  </ng-container>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-3\"></div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\tUse stripeJS test card 4242 4242 4242 4242\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\" for=\"cardNumber-element\">Card Number <font color=\"red\">*</font></label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-control\" id=\"cardNumber-element\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- a Stripe Element will be inserted here. -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-danger\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{cardNumberMsg}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\" for=\"cardExpiry-element\">Card Expiry <font color=\"red\">*</font></label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-control\" id=\"cardExpiry-element\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- a Stripe Element will be inserted here. -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-danger\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{cardExpiryMsg}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\" for=\"cardCvc-element\">CVC <font color=\"red\">*</font></label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-control\" id=\"cardCvc-element\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- a Stripe Element will be inserted here. -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-danger\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{cardCVCMsg}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\" for=\"postalCode-element\">Zip/Postal Code <font color=\"red\">*</font></label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-control\" id=\"postalCode-element\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t-->\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<br>\t\t\t\n\t\t\t\t\n\n\n\n\t</div>\n\n\n\t<div class=\"col-sm-1\"></div>\n\n\n\t<div class=\"col-sm-4\">\n\t\t<div class=\"row\">\n\t\t\t<app-checkout-items\n\t\t\t[cartItemsArray] = \"cartItems\"\n\t\t\t[currency] = \"currency\">\n\t\t\t</app-checkout-items>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<app-checkout-orderdetails\n\t\t\t[_cartTotalPrice] = \"cartTotalPrice\"\n\t\t\t[currency] = \"currency\">\n\t\t\t</app-checkout-orderdetails>\n\t\t</div>\n\t\t\n\t\t<div class=\"row\">\n\t\t\t<div class=\"text-center\">\n\t\t\t\t<button type=\"submit\" class=\"btn btn-success\">Buy now ${{coinPriceDisplay(roundPrice(cartTotalPrice, 2))}} {{currency.currency}}</button>\n\t\t\t</div>\n\t\t</div>\n\t\t<ng-container *ngIf=\"errorMsg\">\n\t\t\t<br>\n\t\t\t<div class=\"row\">\n\t\t\t<div class=\"alert alert-danger text-center\">\n\t\t\t  {{errorMsg}}\n\t\t\t</div>\n\t\t\t</div>\n\t\t  </ng-container>\n\t</div>\n</form>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/checkout/checkout-form/checkout-form.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CheckoutFormComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__objects_currency_class__ = __webpack_require__("./src/app/objects/currency.class.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modules_round_module__ = __webpack_require__("./src/app/modules/round.module.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var CheckoutFormComponent = /** @class */ (function () {
+    function CheckoutFormComponent(_fb) {
+        this._fb = _fb;
+        this.cardNumberMsg = "";
+        this.cardExpiryMsg = "";
+        this.cardCVCMsg = "";
+        this.cardMsg = "";
+        this.nameMsg = "";
+        this.addressLine1Msg = "";
+        this.cityMsg = "";
+        this.countryMsg = "";
+        this.stripeTokenEmitter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+    }
+    CheckoutFormComponent.prototype.ngOnInit = function () {
+        this.createForm();
+        this.initCard();
+    };
+    CheckoutFormComponent.prototype.createForm = function () {
+        this.shoppingCartCheckoutForm = this._fb.group({
+            name: ["", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* Validators */].required],
+            shippingAddress: this._fb.group({
+                addressLine1: ["", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* Validators */].required],
+                addressLine2: [""],
+                city: ["", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* Validators */].required],
+                state: [""],
+                zip: [""],
+                country: ["", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* Validators */].required]
+            })
+        });
+    };
+    CheckoutFormComponent.prototype.initCard = function () {
+        this.stripe = Stripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+        this.elements = this.stripe.elements();
+        this.cardNumber = this.elements.create('cardNumber', { placeholder: "4242424242424242" });
+        this.cardExpiry = this.elements.create('cardExpiry');
+        this.cardCvc = this.elements.create('cardCvc');
+        //this.postalCode = this.elements.create('postalCode');
+        this.cardNumber.mount('#cardNumber-element');
+        this.cardExpiry.mount('#cardExpiry-element');
+        this.cardCvc.mount('#cardCvc-element');
+        //this.postalCode.mount('#postalCode-element');
+    };
+    CheckoutFormComponent.prototype.clearMsg = function () {
+        this.errorMsg = "";
+        this.cardNumberMsg = "";
+        this.cardExpiryMsg = "";
+        this.cardCVCMsg = "";
+        this.cardMsg = "";
+        this.nameMsg = "";
+        this.addressLine1Msg = "";
+        this.cityMsg = "";
+        this.countryMsg = "";
+    };
+    CheckoutFormComponent.prototype.coinPriceDisplay = function (price) {
+        return price.toFixed(2);
+    };
+    //this function is used so that the html template can access the round function module 
+    CheckoutFormComponent.prototype.roundPrice = function (num, precision) {
+        return Object(__WEBPACK_IMPORTED_MODULE_3__modules_round_module__["a" /* round */])(num, precision);
+    };
+    CheckoutFormComponent.prototype.checkCheckoutFormFields = function (checkoutFormValue) {
+        if (checkoutFormValue.name == "") {
+            this.nameMsg = "Full Name is required";
+        }
+        if (checkoutFormValue.shippingAddress.addressLine1 == "") {
+            this.addressLine1Msg = "Address Line 1 is required";
+        }
+        if (checkoutFormValue.shippingAddress.city == "") {
+            this.cityMsg = "City is required";
+        }
+        if (checkoutFormValue.shippingAddress.country == "") {
+            this.countryMsg = "Country is required";
+        }
+    };
+    CheckoutFormComponent.prototype.checkStripeTokenError = function (err) {
+        if (err.code == "invalid_number") {
+            this.cardNumberMsg = err.message;
+        }
+        else if (err.code == "incorrect_number") {
+            this.cardNumberMsg = err.message;
+        }
+        else if (err.code == "incomplete_number") {
+            this.cardNumberMsg = err.message;
+        }
+        else if (err.code == "incomplete_expiry") {
+            this.cardExpiryMsg = err.message;
+        }
+        else if (err.code == "invalid_expiry_month") {
+            this.cardExpiryMsg = err.message;
+        }
+        else if (err.code == "invalid_expiry_year") {
+            this.cardExpiryMsg = err.message;
+        }
+        else if (err.code == "invalid_expiry_year_past") {
+            this.cardExpiryMsg = err.message;
+        }
+        else if (err.code == "incomplete_cvc") {
+            this.cardCVCMsg = err.message;
+        }
+        else if (err.code == "incorrect_cvc") {
+            this.cardCVCMsg = err.message;
+        }
+        else if (err.code == "invalid_cvc") {
+            this.cardCVCMsg = err.message;
+        }
+        else if (err.code == "expired_card") {
+            this.cardMsg = err.message;
+        }
+        else if (err.code == "card_declined") {
+            this.cardMsg = err.message;
+        }
+        else if (err.code == "missing") {
+            this.cardMsg = err.message;
+        }
+        else if (err.code == "processing_error") {
+            this.cardMsg = err.message;
+        }
+        else if (err.code == "invalid_swipe_data") {
+            this.cardMsg = err.message;
+        }
+    };
+    CheckoutFormComponent.prototype.createToken = function (_shoppingCartCheckoutForm) {
+        var _this = this;
+        this.clearMsg();
+        if (!_shoppingCartCheckoutForm.valid) {
+            this.checkCheckoutFormFields(_shoppingCartCheckoutForm.value);
+        }
+        else {
+            //console.log(_shoppingCartCheckoutForm.controls.shippingAddress.controls);
+            this.stripe.createToken(this.cardNumber, {
+                name: _shoppingCartCheckoutForm.value.name,
+                address_line1: _shoppingCartCheckoutForm.value.shippingAddress.addressLine1,
+                address_line2: _shoppingCartCheckoutForm.value.shippingAddress.addressLine2,
+                address_city: _shoppingCartCheckoutForm.value.shippingAddress.city,
+                address_state: _shoppingCartCheckoutForm.value.shippingAddress.state,
+                address_zip: _shoppingCartCheckoutForm.value.shippingAddress.zip,
+                address_country: _shoppingCartCheckoutForm.value.shippingAddress.country
+            })
+                .then(function (result) {
+                if (result.error) {
+                    _this.checkStripeTokenError(result.error);
+                }
+                else {
+                    _this.stripeTokenEmitter.emit(result.token);
+                }
+            });
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], CheckoutFormComponent.prototype, "cartItems", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__objects_currency_class__["a" /* currency */])
+    ], CheckoutFormComponent.prototype, "currency", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], CheckoutFormComponent.prototype, "cartTotalPrice", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], CheckoutFormComponent.prototype, "errorMsg", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", Object)
+    ], CheckoutFormComponent.prototype, "stripeTokenEmitter", void 0);
+    CheckoutFormComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-checkout-form',
+            template: __webpack_require__("./src/app/checkout/checkout-form/checkout-form.component.html"),
+            styles: [__webpack_require__("./src/app/checkout/checkout-form/checkout-form.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]])
+    ], CheckoutFormComponent);
+    return CheckoutFormComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/checkout/checkout-items/checkout-items.component.css":
 /***/ (function(module, exports) {
 
@@ -244,7 +463,7 @@ var CheckoutItemsComponent = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-        __metadata("design:type", Number)
+        __metadata("design:type", Object)
     ], CheckoutItemsComponent.prototype, "cartItemsArray", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
@@ -338,7 +557,7 @@ module.exports = ".panel-primary>.panel-heading {\r\n    color: #fff;\r\n    bac
 /***/ "./src/app/checkout/checkout.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header [totalQuantity] = \"total_qty\"></app-header>\r\n<div class=\"container padding-top padding-bottom\">\r\n\t<div class=\"row text-center\">\r\n\t\t<h3>Checkout</h3>\r\n\t</div><br>\r\n\t<form class=\"form-horizontal\" [formGroup]=\"shoppingCartCheckoutForm\" (ngSubmit)=\"createToken(shoppingCartCheckoutForm)\" id=\"shoppingCartCheckoutForm\" name=\"shoppingCartCheckoutForm\">\r\n\r\n\t<div class=\"col-sm-7\">\r\n\r\n\t\t<div class=\"row\">\r\n\t\t\t<div class=\"panel panel-default\">\r\n\t\t\t\t<div class=\"panel-body\">\r\n\t\t\t\t  <strong>Shipping Address</strong><br><br>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Full Name <font color=\"red\">*</font></label>\r\n\t\t\t\t\t\t<div class=\"col-sm-9\">\r\n\t\t\t\t\t\t  <input class=\"form-control\" type=\"text\" id=\"name\" name=\"name\" formControlName=\"name\">\r\n\t\t\t\t\t\t  <div class=\"text-danger\">\r\n\t\t\t\t\t\t\t{{nameMsg}}\r\n\t\t\t\t\t\t  </div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t  </div>\r\n\t\t\t\t\t  <fieldset formGroupName=\"shippingAddress\">\r\n\t\t\t\t\t  <div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Address Line 1 <font color=\"red\">*</font></label>\r\n\t\t\t\t\t\t<div class=\"col-sm-9\">\r\n\t\t\t\t\t\t  <input class=\"form-control\" type=\"text\" id=\"addressLine1\" name=\"addressLine1\" formControlName=\"addressLine1\">\r\n\t\t\t\t\t\t  <div class=\"text-danger\">\r\n\t\t\t\t\t\t\t{{addressLine1Msg}}\r\n\t\t\t\t\t\t  </div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t  </div>\r\n\t\t\t  \r\n\t\t\t\t\t  <div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Address Line 2</label>\r\n\t\t\t\t\t\t<div class=\"col-sm-9\">\r\n\t\t\t\t\t\t  <input class=\"form-control\" type=\"text\" id=\"addressLine2\" name=\"addressLine2\" formControlName=\"addressLine2\">\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t  </div>\r\n\t\t\t  \r\n\t\t\t\t\t  <div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">City<font color=\"red\">*</font></label>\r\n\t\t\t\t\t\t<div class=\"col-sm-9\">\r\n\t\t\t\t\t\t  <input class=\"form-control\" type=\"text\" id=\"city\" name=\"city\" formControlName=\"city\">\r\n\t\t\t\t\t\t  <div class=\"text-danger\">\r\n\t\t\t\t\t\t\t{{cityMsg}}\r\n\t\t\t\t\t\t  </div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t  </div>\r\n\t\t\t  \r\n\t\t\t  \r\n\t\t\t\t\t  <div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">State/Province</label>\r\n\t\t\t\t\t\t<div class=\"col-sm-9\">\r\n\t\t\t\t\t\t  <input class=\"form-control\" type=\"text\" id=\"state\" name=\"state\" formControlName=\"state\">\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t  </div>\r\n\t\t\t  \r\n\t\t\t\t\t  <div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Zip/Postal Code</label>\r\n\t\t\t\t\t\t<div class=\"col-sm-9\">\r\n\t\t\t\t\t\t  <input class=\"form-control\" type=\"text\" id=\"zip\" name=\"zip\" formControlName=\"zip\">\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t  </div>\r\n\t\t\t  \r\n\t\t\t\t\t  <div class=\"form-group\">\r\n\t\t\t\t\t\t<label class=\"col-sm-3 control-label\">Country <font color=\"red\">*</font></label>\r\n\t\t\t\t\t\t<div class=\"col-sm-9\">\r\n\t\t\t\t\t\t  <select class=\"form-control\" id=\"country\" name=\"country\" formControlName=\"country\">\r\n\t\t\t\t\t\t\t  <option value=\"Afghanistan\" title=\"Afghanistan\">Afghanistan</option>\r\n\t\t\t\t\t\t\t  <option value=\"Åland Islands\" title=\"Åland Islands\">Åland Islands</option>\r\n\t\t\t\t\t\t\t  <option value=\"Albania\" title=\"Albania\">Albania</option>\r\n\t\t\t\t\t\t\t  <option value=\"Algeria\" title=\"Algeria\">Algeria</option>\r\n\t\t\t\t\t\t\t  <option value=\"American Samoa\" title=\"American Samoa\">American Samoa</option>\r\n\t\t\t\t\t\t\t  <option value=\"Andorra\" title=\"Andorra\">Andorra</option>\r\n\t\t\t\t\t\t\t  <option value=\"Angola\" title=\"Angola\">Angola</option>\r\n\t\t\t\t\t\t\t  <option value=\"Anguilla\" title=\"Anguilla\">Anguilla</option>\r\n\t\t\t\t\t\t\t  <option value=\"Antarctica\" title=\"Antarctica\">Antarctica</option>\r\n\t\t\t\t\t\t\t  <option value=\"Antigua and Barbuda\" title=\"Antigua and Barbuda\">Antigua and Barbuda</option>\r\n\t\t\t\t\t\t\t  <option value=\"Argentina\" title=\"Argentina\">Argentina</option>\r\n\t\t\t\t\t\t\t  <option value=\"Armenia\" title=\"Armenia\">Armenia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Aruba\" title=\"Aruba\">Aruba</option>\r\n\t\t\t\t\t\t\t  <option value=\"Australia\" title=\"Australia\">Australia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Austria\" title=\"Austria\">Austria</option>\r\n\t\t\t\t\t\t\t  <option value=\"Azerbaijan\" title=\"Azerbaijan\">Azerbaijan</option>\r\n\t\t\t\t\t\t\t  <option value=\"Bahamas\" title=\"Bahamas\">Bahamas</option>\r\n\t\t\t\t\t\t\t  <option value=\"Bahrain\" title=\"Bahrain\">Bahrain</option>\r\n\t\t\t\t\t\t\t  <option value=\"Bangladesh\" title=\"Bangladesh\">Bangladesh</option>\r\n\t\t\t\t\t\t\t  <option value=\"Barbados\" title=\"Barbados\">Barbados</option>\r\n\t\t\t\t\t\t\t  <option value=\"Belarus\" title=\"Belarus\">Belarus</option>\r\n\t\t\t\t\t\t\t  <option value=\"Belgium\" title=\"Belgium\">Belgium</option>\r\n\t\t\t\t\t\t\t  <option value=\"Belize\" title=\"Belize\">Belize</option>\r\n\t\t\t\t\t\t\t  <option value=\"Benin\" title=\"Benin\">Benin</option>\r\n\t\t\t\t\t\t\t  <option value=\"Bermuda\" title=\"Bermuda\">Bermuda</option>\r\n\t\t\t\t\t\t\t  <option value=\"Bhutan\" title=\"Bhutan\">Bhutan</option>\r\n\t\t\t\t\t\t\t  <option value=\"Bolivia, Plurinational State of\" title=\"Bolivia, Plurinational State of\">Bolivia, Plurinational State of</option>\r\n\t\t\t\t\t\t\t  <option value=\"Bonaire, Sint Eustatius and Saba\" title=\"Bonaire, Sint Eustatius and Saba\">Bonaire, Sint Eustatius and Saba</option>\r\n\t\t\t\t\t\t\t  <option value=\"Bosnia and Herzegovina\" title=\"Bosnia and Herzegovina\">Bosnia and Herzegovina</option>\r\n\t\t\t\t\t\t\t  <option value=\"Botswana\" title=\"Botswana\">Botswana</option>\r\n\t\t\t\t\t\t\t  <option value=\"Bouvet Island\" title=\"Bouvet Island\">Bouvet Island</option>\r\n\t\t\t\t\t\t\t  <option value=\"Brazil\" title=\"Brazil\">Brazil</option>\r\n\t\t\t\t\t\t\t  <option value=\"British Indian Ocean Territory\" title=\"British Indian Ocean Territory\">British Indian Ocean Territory</option>\r\n\t\t\t\t\t\t\t  <option value=\"Brunei Darussalam\" title=\"Brunei Darussalam\">Brunei Darussalam</option>\r\n\t\t\t\t\t\t\t  <option value=\"Bulgaria\" title=\"Bulgaria\">Bulgaria</option>\r\n\t\t\t\t\t\t\t  <option value=\"Burkina Faso\" title=\"Burkina Faso\">Burkina Faso</option>\r\n\t\t\t\t\t\t\t  <option value=\"Burundi\" title=\"Burundi\">Burundi</option>\r\n\t\t\t\t\t\t\t  <option value=\"Cambodia\" title=\"Cambodia\">Cambodia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Cameroon\" title=\"Cameroon\">Cameroon</option>\r\n\t\t\t\t\t\t\t  <option value=\"Canada\" title=\"Canada\">Canada</option>\r\n\t\t\t\t\t\t\t  <option value=\"Cape Verde\" title=\"Cape Verde\">Cape Verde</option>\r\n\t\t\t\t\t\t\t  <option value=\"Cayman Islands\" title=\"Cayman Islands\">Cayman Islands</option>\r\n\t\t\t\t\t\t\t  <option value=\"Central African Republic\" title=\"Central African Republic\">Central African Republic</option>\r\n\t\t\t\t\t\t\t  <option value=\"Chad\" title=\"Chad\">Chad</option>\r\n\t\t\t\t\t\t\t  <option value=\"Chile\" title=\"Chile\">Chile</option>\r\n\t\t\t\t\t\t\t  <option value=\"China\" title=\"China\">China</option>\r\n\t\t\t\t\t\t\t  <option value=\"Christmas Island\" title=\"Christmas Island\">Christmas Island</option>\r\n\t\t\t\t\t\t\t  <option value=\"Cocos (Keeling) Islands\" title=\"Cocos (Keeling) Islands\">Cocos (Keeling) Islands</option>\r\n\t\t\t\t\t\t\t  <option value=\"Colombia\" title=\"Colombia\">Colombia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Comoros\" title=\"Comoros\">Comoros</option>\r\n\t\t\t\t\t\t\t  <option value=\"Congo\" title=\"Congo\">Congo</option>\r\n\t\t\t\t\t\t\t  <option value=\"Congo, the Democratic Republic of the\" title=\"Congo, the Democratic Republic of the\">Congo, the Democratic Republic of the</option>\r\n\t\t\t\t\t\t\t  <option value=\"Cook Islands\" title=\"Cook Islands\">Cook Islands</option>\r\n\t\t\t\t\t\t\t  <option value=\"Costa Rica\" title=\"Costa Rica\">Costa Rica</option>\r\n\t\t\t\t\t\t\t  <option value=\"Côte d'Ivoire\" title=\"Côte d'Ivoire\">Côte d'Ivoire</option>\r\n\t\t\t\t\t\t\t  <option value=\"Croatia\" title=\"Croatia\">Croatia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Cuba\" title=\"Cuba\">Cuba</option>\r\n\t\t\t\t\t\t\t  <option value=\"Curaçao\" title=\"Curaçao\">Curaçao</option>\r\n\t\t\t\t\t\t\t  <option value=\"Cyprus\" title=\"Cyprus\">Cyprus</option>\r\n\t\t\t\t\t\t\t  <option value=\"Czech Republic\" title=\"Czech Republic\">Czech Republic</option>\r\n\t\t\t\t\t\t\t  <option value=\"Denmark\" title=\"Denmark\">Denmark</option>\r\n\t\t\t\t\t\t\t  <option value=\"Djibouti\" title=\"Djibouti\">Djibouti</option>\r\n\t\t\t\t\t\t\t  <option value=\"Dominica\" title=\"Dominica\">Dominica</option>\r\n\t\t\t\t\t\t\t  <option value=\"Dominican Republic\" title=\"Dominican Republic\">Dominican Republic</option>\r\n\t\t\t\t\t\t\t  <option value=\"Ecuador\" title=\"Ecuador\">Ecuador</option>\r\n\t\t\t\t\t\t\t  <option value=\"Egypt\" title=\"Egypt\">Egypt</option>\r\n\t\t\t\t\t\t\t  <option value=\"El Salvador\" title=\"El Salvador\">El Salvador</option>\r\n\t\t\t\t\t\t\t  <option value=\"Equatorial Guinea\" title=\"Equatorial Guinea\">Equatorial Guinea</option>\r\n\t\t\t\t\t\t\t  <option value=\"Eritrea\" title=\"Eritrea\">Eritrea</option>\r\n\t\t\t\t\t\t\t  <option value=\"Estonia\" title=\"Estonia\">Estonia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Ethiopia\" title=\"Ethiopia\">Ethiopia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Falkland Islands (Malvinas)\" title=\"Falkland Islands (Malvinas)\">Falkland Islands (Malvinas)</option>\r\n\t\t\t\t\t\t\t  <option value=\"Faroe Islands\" title=\"Faroe Islands\">Faroe Islands</option>\r\n\t\t\t\t\t\t\t  <option value=\"Fiji\" title=\"Fiji\">Fiji</option>\r\n\t\t\t\t\t\t\t  <option value=\"Finland\" title=\"Finland\">Finland</option>\r\n\t\t\t\t\t\t\t  <option value=\"France\" title=\"France\">France</option>\r\n\t\t\t\t\t\t\t  <option value=\"French Guiana\" title=\"French Guiana\">French Guiana</option>\r\n\t\t\t\t\t\t\t  <option value=\"French Polynesia\" title=\"French Polynesia\">French Polynesia</option>\r\n\t\t\t\t\t\t\t  <option value=\"French Southern Territories\" title=\"French Southern Territories\">French Southern Territories</option>\r\n\t\t\t\t\t\t\t  <option value=\"Gabon\" title=\"Gabon\">Gabon</option>\r\n\t\t\t\t\t\t\t  <option value=\"Gambia\" title=\"Gambia\">Gambia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Georgia\" title=\"Georgia\">Georgia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Germany\" title=\"Germany\">Germany</option>\r\n\t\t\t\t\t\t\t  <option value=\"Ghana\" title=\"Ghana\">Ghana</option>\r\n\t\t\t\t\t\t\t  <option value=\"Gibraltar\" title=\"Gibraltar\">Gibraltar</option>\r\n\t\t\t\t\t\t\t  <option value=\"Greece\" title=\"Greece\">Greece</option>\r\n\t\t\t\t\t\t\t  <option value=\"Greenland\" title=\"Greenland\">Greenland</option>\r\n\t\t\t\t\t\t\t  <option value=\"Grenada\" title=\"Grenada\">Grenada</option>\r\n\t\t\t\t\t\t\t  <option value=\"Guadeloupe\" title=\"Guadeloupe\">Guadeloupe</option>\r\n\t\t\t\t\t\t\t  <option value=\"Guam\" title=\"Guam\">Guam</option>\r\n\t\t\t\t\t\t\t  <option value=\"Guatemala\" title=\"Guatemala\">Guatemala</option>\r\n\t\t\t\t\t\t\t  <option value=\"Guernsey\" title=\"Guernsey\">Guernsey</option>\r\n\t\t\t\t\t\t\t  <option value=\"Guinea\" title=\"Guinea\">Guinea</option>\r\n\t\t\t\t\t\t\t  <option value=\"Guinea-Bissau\" title=\"Guinea-Bissau\">Guinea-Bissau</option>\r\n\t\t\t\t\t\t\t  <option value=\"Guyana\" title=\"Guyana\">Guyana</option>\r\n\t\t\t\t\t\t\t  <option value=\"Haiti\" title=\"Haiti\">Haiti</option>\r\n\t\t\t\t\t\t\t  <option value=\"Heard Island and McDonald Islands\" title=\"Heard Island and McDonald Islands\">Heard Island and McDonald Islands</option>\r\n\t\t\t\t\t\t\t  <option value=\"Holy See (Vatican City State)\" title=\"Holy See (Vatican City State)\">Holy See (Vatican City State)</option>\r\n\t\t\t\t\t\t\t  <option value=\"Honduras\" title=\"Honduras\">Honduras</option>\r\n\t\t\t\t\t\t\t  <option value=\"Hong Kong\" title=\"Hong Kong\">Hong Kong</option>\r\n\t\t\t\t\t\t\t  <option value=\"Hungary\" title=\"Hungary\">Hungary</option>\r\n\t\t\t\t\t\t\t  <option value=\"Iceland\" title=\"Iceland\">Iceland</option>\r\n\t\t\t\t\t\t\t  <option value=\"India\" title=\"India\">India</option>\r\n\t\t\t\t\t\t\t  <option value=\"Indonesia\" title=\"Indonesia\">Indonesia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Iran, Islamic Republic of\" title=\"Iran, Islamic Republic of\">Iran, Islamic Republic of</option>\r\n\t\t\t\t\t\t\t  <option value=\"Iraq\" title=\"Iraq\">Iraq</option>\r\n\t\t\t\t\t\t\t  <option value=\"Ireland\" title=\"Ireland\">Ireland</option>\r\n\t\t\t\t\t\t\t  <option value=\"Isle of Man\" title=\"Isle of Man\">Isle of Man</option>\r\n\t\t\t\t\t\t\t  <option value=\"Israel\" title=\"Israel\">Israel</option>\r\n\t\t\t\t\t\t\t  <option value=\"Italy\" title=\"Italy\">Italy</option>\r\n\t\t\t\t\t\t\t  <option value=\"Jamaica\" title=\"Jamaica\">Jamaica</option>\r\n\t\t\t\t\t\t\t  <option value=\"Japan\" title=\"Japan\">Japan</option>\r\n\t\t\t\t\t\t\t  <option value=\"Jersey\" title=\"Jersey\">Jersey</option>\r\n\t\t\t\t\t\t\t  <option value=\"Jordan\" title=\"Jordan\">Jordan</option>\r\n\t\t\t\t\t\t\t  <option value=\"Kazakhstan\" title=\"Kazakhstan\">Kazakhstan</option>\r\n\t\t\t\t\t\t\t  <option value=\"Kenya\" title=\"Kenya\">Kenya</option>\r\n\t\t\t\t\t\t\t  <option value=\"Kiribati\" title=\"Kiribati\">Kiribati</option>\r\n\t\t\t\t\t\t\t  <option value=\"Korea, Democratic People's Republic of\" title=\"Korea, Democratic People's Republic of\">Korea, Democratic People's Republic of</option>\r\n\t\t\t\t\t\t\t  <option value=\"Korea, Republic of\" title=\"Korea, Republic of\">Korea, Republic of</option>\r\n\t\t\t\t\t\t\t  <option value=\"Kuwait\" title=\"Kuwait\">Kuwait</option>\r\n\t\t\t\t\t\t\t  <option value=\"Kyrgyzstan\" title=\"Kyrgyzstan\">Kyrgyzstan</option>\r\n\t\t\t\t\t\t\t  <option value=\"Lao People's Democratic Republic\" title=\"Lao People's Democratic Republic\">Lao People's Democratic Republic</option>\r\n\t\t\t\t\t\t\t  <option value=\"Latvia\" title=\"Latvia\">Latvia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Lebanon\" title=\"Lebanon\">Lebanon</option>\r\n\t\t\t\t\t\t\t  <option value=\"Lesotho\" title=\"Lesotho\">Lesotho</option>\r\n\t\t\t\t\t\t\t  <option value=\"Liberia\" title=\"Liberia\">Liberia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Libya\" title=\"Libya\">Libya</option>\r\n\t\t\t\t\t\t\t  <option value=\"Liechtenstein\" title=\"Liechtenstein\">Liechtenstein</option>\r\n\t\t\t\t\t\t\t  <option value=\"Lithuania\" title=\"Lithuania\">Lithuania</option>\r\n\t\t\t\t\t\t\t  <option value=\"Luxembourg\" title=\"Luxembourg\">Luxembourg</option>\r\n\t\t\t\t\t\t\t  <option value=\"Macao\" title=\"Macao\">Macao</option>\r\n\t\t\t\t\t\t\t  <option value=\"Macedonia, the former Yugoslav Republic of\" title=\"Macedonia, the former Yugoslav Republic of\">Macedonia, the former Yugoslav Republic of</option>\r\n\t\t\t\t\t\t\t  <option value=\"Madagascar\" title=\"Madagascar\">Madagascar</option>\r\n\t\t\t\t\t\t\t  <option value=\"Malawi\" title=\"Malawi\">Malawi</option>\r\n\t\t\t\t\t\t\t  <option value=\"Malaysia\" title=\"Malaysia\">Malaysia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Maldives\" title=\"Maldives\">Maldives</option>\r\n\t\t\t\t\t\t\t  <option value=\"Mali\" title=\"Mali\">Mali</option>\r\n\t\t\t\t\t\t\t  <option value=\"Malta\" title=\"Malta\">Malta</option>\r\n\t\t\t\t\t\t\t  <option value=\"Marshall Islands\" title=\"Marshall Islands\">Marshall Islands</option>\r\n\t\t\t\t\t\t\t  <option value=\"Martinique\" title=\"Martinique\">Martinique</option>\r\n\t\t\t\t\t\t\t  <option value=\"Mauritania\" title=\"Mauritania\">Mauritania</option>\r\n\t\t\t\t\t\t\t  <option value=\"Mauritius\" title=\"Mauritius\">Mauritius</option>\r\n\t\t\t\t\t\t\t  <option value=\"Mayotte\" title=\"Mayotte\">Mayotte</option>\r\n\t\t\t\t\t\t\t  <option value=\"Mexico\" title=\"Mexico\">Mexico</option>\r\n\t\t\t\t\t\t\t  <option value=\"Micronesia, Federated States of\" title=\"Micronesia, Federated States of\">Micronesia, Federated States of</option>\r\n\t\t\t\t\t\t\t  <option value=\"Moldova, Republic of\" title=\"Moldova, Republic of\">Moldova, Republic of</option>\r\n\t\t\t\t\t\t\t  <option value=\"Monaco\" title=\"Monaco\">Monaco</option>\r\n\t\t\t\t\t\t\t  <option value=\"Mongolia\" title=\"Mongolia\">Mongolia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Montenegro\" title=\"Montenegro\">Montenegro</option>\r\n\t\t\t\t\t\t\t  <option value=\"Montserrat\" title=\"Montserrat\">Montserrat</option>\r\n\t\t\t\t\t\t\t  <option value=\"Morocco\" title=\"Morocco\">Morocco</option>\r\n\t\t\t\t\t\t\t  <option value=\"Mozambique\" title=\"Mozambique\">Mozambique</option>\r\n\t\t\t\t\t\t\t  <option value=\"Myanmar\" title=\"Myanmar\">Myanmar</option>\r\n\t\t\t\t\t\t\t  <option value=\"Namibia\" title=\"Namibia\">Namibia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Nauru\" title=\"Nauru\">Nauru</option>\r\n\t\t\t\t\t\t\t  <option value=\"Nepal\" title=\"Nepal\">Nepal</option>\r\n\t\t\t\t\t\t\t  <option value=\"Netherlands\" title=\"Netherlands\">Netherlands</option>\r\n\t\t\t\t\t\t\t  <option value=\"New Caledonia\" title=\"New Caledonia\">New Caledonia</option>\r\n\t\t\t\t\t\t\t  <option value=\"New Zealand\" title=\"New Zealand\">New Zealand</option>\r\n\t\t\t\t\t\t\t  <option value=\"Nicaragua\" title=\"Nicaragua\">Nicaragua</option>\r\n\t\t\t\t\t\t\t  <option value=\"Niger\" title=\"Niger\">Niger</option>\r\n\t\t\t\t\t\t\t  <option value=\"Nigeria\" title=\"Nigeria\">Nigeria</option>\r\n\t\t\t\t\t\t\t  <option value=\"Niue\" title=\"Niue\">Niue</option>\r\n\t\t\t\t\t\t\t  <option value=\"Norfolk Island\" title=\"Norfolk Island\">Norfolk Island</option>\r\n\t\t\t\t\t\t\t  <option value=\"Northern Mariana Islands\" title=\"Northern Mariana Islands\">Northern Mariana Islands</option>\r\n\t\t\t\t\t\t\t  <option value=\"Norway\" title=\"Norway\">Norway</option>\r\n\t\t\t\t\t\t\t  <option value=\"Oman\" title=\"Oman\">Oman</option>\r\n\t\t\t\t\t\t\t  <option value=\"Pakistan\" title=\"Pakistan\">Pakistan</option>\r\n\t\t\t\t\t\t\t  <option value=\"Palau\" title=\"Palau\">Palau</option>\r\n\t\t\t\t\t\t\t  <option value=\"Palestinian Territory\" title=\"Palestinian Territory\">Palestinian Territory</option>\r\n\t\t\t\t\t\t\t  <option value=\"Panama\" title=\"Panama\">Panama</option>\r\n\t\t\t\t\t\t\t  <option value=\"Papua New Guinea\" title=\"Papua New Guinea\">Papua New Guinea</option>\r\n\t\t\t\t\t\t\t  <option value=\"Paraguay\" title=\"Paraguay\">Paraguay</option>\r\n\t\t\t\t\t\t\t  <option value=\"Peru\" title=\"Peru\">Peru</option>\r\n\t\t\t\t\t\t\t  <option value=\"Philippines\" title=\"Philippines\">Philippines</option>\r\n\t\t\t\t\t\t\t  <option value=\"Pitcairn\" title=\"Pitcairn\">Pitcairn</option>\r\n\t\t\t\t\t\t\t  <option value=\"Poland\" title=\"Poland\">Poland</option>\r\n\t\t\t\t\t\t\t  <option value=\"Portugal\" title=\"Portugal\">Portugal</option>\r\n\t\t\t\t\t\t\t  <option value=\"Puerto Rico\" title=\"Puerto Rico\">Puerto Rico</option>\r\n\t\t\t\t\t\t\t  <option value=\"Qatar\" title=\"Qatar\">Qatar</option>\r\n\t\t\t\t\t\t\t  <option value=\"Réunion\" title=\"Réunion\">Réunion</option>\r\n\t\t\t\t\t\t\t  <option value=\"Romania\" title=\"Romania\">Romania</option>\r\n\t\t\t\t\t\t\t  <option value=\"Russian Federation\" title=\"Russian Federation\">Russian Federation</option>\r\n\t\t\t\t\t\t\t  <option value=\"Rwanda\" title=\"Rwanda\">Rwanda</option>\r\n\t\t\t\t\t\t\t  <option value=\"Saint Barthélemy\" title=\"Saint Barthélemy\">Saint Barthélemy</option>\r\n\t\t\t\t\t\t\t  <option value=\"Saint Helena, Ascension and Tristan da Cunha\" title=\"Saint Helena, Ascension and Tristan da Cunha\">Saint Helena, Ascension and Tristan da Cunha</option>\r\n\t\t\t\t\t\t\t  <option value=\"Saint Kitts and Nevis\" title=\"Saint Kitts and Nevis\">Saint Kitts and Nevis</option>\r\n\t\t\t\t\t\t\t  <option value=\"Saint Lucia\" title=\"Saint Lucia\">Saint Lucia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Saint Martin (French part)\" title=\"Saint Martin (French part)\">Saint Martin (French part)</option>\r\n\t\t\t\t\t\t\t  <option value=\"Saint Pierre and Miquelon\" title=\"Saint Pierre and Miquelon\">Saint Pierre and Miquelon</option>\r\n\t\t\t\t\t\t\t  <option value=\"Saint Vincent and the Grenadines\" title=\"Saint Vincent and the Grenadines\">Saint Vincent and the Grenadines</option>\r\n\t\t\t\t\t\t\t  <option value=\"Samoa\" title=\"Samoa\">Samoa</option>\r\n\t\t\t\t\t\t\t  <option value=\"San Marino\" title=\"San Marino\">San Marino</option>\r\n\t\t\t\t\t\t\t  <option value=\"Sao Tome and Principe\" title=\"Sao Tome and Principe\">Sao Tome and Principe</option>\r\n\t\t\t\t\t\t\t  <option value=\"Saudi Arabia\" title=\"Saudi Arabia\">Saudi Arabia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Senegal\" title=\"Senegal\">Senegal</option>\r\n\t\t\t\t\t\t\t  <option value=\"Serbia\" title=\"Serbia\">Serbia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Seychelles\" title=\"Seychelles\">Seychelles</option>\r\n\t\t\t\t\t\t\t  <option value=\"Sierra Leone\" title=\"Sierra Leone\">Sierra Leone</option>\r\n\t\t\t\t\t\t\t  <option value=\"Singapore\" title=\"Singapore\">Singapore</option>\r\n\t\t\t\t\t\t\t  <option value=\"Sint Maarten (Dutch part)\" title=\"Sint Maarten (Dutch part)\">Sint Maarten (Dutch part)</option>\r\n\t\t\t\t\t\t\t  <option value=\"Slovakia\" title=\"Slovakia\">Slovakia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Slovenia\" title=\"Slovenia\">Slovenia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Solomon Islands\" title=\"Solomon Islands\">Solomon Islands</option>\r\n\t\t\t\t\t\t\t  <option value=\"Somalia\" title=\"Somalia\">Somalia</option>\r\n\t\t\t\t\t\t\t  <option value=\"South Africa\" title=\"South Africa\">South Africa</option>\r\n\t\t\t\t\t\t\t  <option value=\"South Georgia and the South Sandwich Islands\" title=\"South Georgia and the South Sandwich Islands\">South Georgia and the South Sandwich Islands</option>\r\n\t\t\t\t\t\t\t  <option value=\"South Sudan\" title=\"South Sudan\">South Sudan</option>\r\n\t\t\t\t\t\t\t  <option value=\"Spain\" title=\"Spain\">Spain</option>\r\n\t\t\t\t\t\t\t  <option value=\"Sri Lanka\" title=\"Sri Lanka\">Sri Lanka</option>\r\n\t\t\t\t\t\t\t  <option value=\"Sudan\" title=\"Sudan\">Sudan</option>\r\n\t\t\t\t\t\t\t  <option value=\"Suriname\" title=\"Suriname\">Suriname</option>\r\n\t\t\t\t\t\t\t  <option value=\"Svalbard and Jan Mayen\" title=\"Svalbard and Jan Mayen\">Svalbard and Jan Mayen</option>\r\n\t\t\t\t\t\t\t  <option value=\"Swaziland\" title=\"Swaziland\">Swaziland</option>\r\n\t\t\t\t\t\t\t  <option value=\"Sweden\" title=\"Sweden\">Sweden</option>\r\n\t\t\t\t\t\t\t  <option value=\"Switzerland\" title=\"Switzerland\">Switzerland</option>\r\n\t\t\t\t\t\t\t  <option value=\"Syrian Arab Republic\" title=\"Syrian Arab Republic\">Syrian Arab Republic</option>\r\n\t\t\t\t\t\t\t  <option value=\"Taiwan, Province of China\" title=\"Taiwan, Province of China\">Taiwan, Province of China</option>\r\n\t\t\t\t\t\t\t  <option value=\"Tajikistan\" title=\"Tajikistan\">Tajikistan</option>\r\n\t\t\t\t\t\t\t  <option value=\"Tanzania, United Republic of\" title=\"Tanzania, United Republic of\">Tanzania, United Republic of</option>\r\n\t\t\t\t\t\t\t  <option value=\"Thailand\" title=\"Thailand\">Thailand</option>\r\n\t\t\t\t\t\t\t  <option value=\"Timor-Leste\" title=\"Timor-Leste\">Timor-Leste</option>\r\n\t\t\t\t\t\t\t  <option value=\"Togo\" title=\"Togo\">Togo</option>\r\n\t\t\t\t\t\t\t  <option value=\"Tokelau\" title=\"Tokelau\">Tokelau</option>\r\n\t\t\t\t\t\t\t  <option value=\"Tonga\" title=\"Tonga\">Tonga</option>\r\n\t\t\t\t\t\t\t  <option value=\"Trinidad and Tobago\" title=\"Trinidad and Tobago\">Trinidad and Tobago</option>\r\n\t\t\t\t\t\t\t  <option value=\"Tunisia\" title=\"Tunisia\">Tunisia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Turkey\" title=\"Turkey\">Turkey</option>\r\n\t\t\t\t\t\t\t  <option value=\"Turkmenistan\" title=\"Turkmenistan\">Turkmenistan</option>\r\n\t\t\t\t\t\t\t  <option value=\"Turks and Caicos Islands\" title=\"Turks and Caicos Islands\">Turks and Caicos Islands</option>\r\n\t\t\t\t\t\t\t  <option value=\"Tuvalu\" title=\"Tuvalu\">Tuvalu</option>\r\n\t\t\t\t\t\t\t  <option value=\"Uganda\" title=\"Uganda\">Uganda</option>\r\n\t\t\t\t\t\t\t  <option value=\"Ukraine\" title=\"Ukraine\">Ukraine</option>\r\n\t\t\t\t\t\t\t  <option value=\"United Arab Emirates\" title=\"United Arab Emirates\">United Arab Emirates</option>\r\n\t\t\t\t\t\t\t  <option value=\"United Kingdom\" title=\"United Kingdom\">United Kingdom</option>\r\n\t\t\t\t\t\t\t  <option value=\"United States\" title=\"United States\">United States</option>\r\n\t\t\t\t\t\t\t  <option value=\"United States Minor Outlying Islands\" title=\"United States Minor Outlying Islands\">United States Minor Outlying Islands</option>\r\n\t\t\t\t\t\t\t  <option value=\"Uruguay\" title=\"Uruguay\">Uruguay</option>\r\n\t\t\t\t\t\t\t  <option value=\"Uzbekistan\" title=\"Uzbekistan\">Uzbekistan</option>\r\n\t\t\t\t\t\t\t  <option value=\"Vanuatu\" title=\"Vanuatu\">Vanuatu</option>\r\n\t\t\t\t\t\t\t  <option value=\"Venezuela, Bolivarian Republic of\" title=\"Venezuela, Bolivarian Republic of\">Venezuela, Bolivarian Republic of</option>\r\n\t\t\t\t\t\t\t  <option value=\"Viet Nam\" title=\"Viet Nam\">Viet Nam</option>\r\n\t\t\t\t\t\t\t  <option value=\"Virgin Islands, British\" title=\"Virgin Islands, British\">Virgin Islands, British</option>\r\n\t\t\t\t\t\t\t  <option value=\"Virgin Islands, U.S.\" title=\"Virgin Islands, U.S.\">Virgin Islands, U.S.</option>\r\n\t\t\t\t\t\t\t  <option value=\"Wallis and Futuna\" title=\"Wallis and Futuna\">Wallis and Futuna</option>\r\n\t\t\t\t\t\t\t  <option value=\"Western Sahara\" title=\"Western Sahara\">Western Sahara</option>\r\n\t\t\t\t\t\t\t  <option value=\"Yemen\" title=\"Yemen\">Yemen</option>\r\n\t\t\t\t\t\t\t  <option value=\"Zambia\" title=\"Zambia\">Zambia</option>\r\n\t\t\t\t\t\t\t  <option value=\"Zimbabwe\" title=\"Zimbabwe\">Zimbabwe</option>\r\n\t\t\t\t\t\t  </select>\r\n\t\t\t\t\t\t  <div class=\"text-danger\">\r\n\t\t\t\t\t\t\t{{countryMsg}}\r\n\t\t\t\t\t\t  </div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t  </div>\r\n\t\t\t\t\t  </fieldset>\r\n\t\t\t\t</div>\r\n\t\t\t  </div>\r\n\t\t</div>\r\n\r\n\t\t\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t\t\t<div class=\"panel panel-default\">\r\n\t\t\t\t\t\t\t\t\t<div class=\"panel-body\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-3\">\r\n\t\t\t\t\t\t\t\t\t\t\t<strong>Credit Card</strong>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\r\n\t\t\t\t\t\t\t\t\t\t\t<ng-container *ngIf=\"cardMsg\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"alert alert-danger text-center\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t  {{cardMsg}}\r\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t  </ng-container>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-3\"></div>\r\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\r\n\t\t\t\t\t\t\t\t\t\t\t\tUse stripeJS test card 4242 4242 4242 4242\r\n\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\" for=\"cardNumber-element\">Card Number <font color=\"red\">*</font></label>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-control\" id=\"cardNumber-element\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- a Stripe Element will be inserted here. -->\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-danger\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{cardNumberMsg}}\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\" for=\"cardExpiry-element\">Card Expiry <font color=\"red\">*</font></label>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-control\" id=\"cardExpiry-element\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- a Stripe Element will be inserted here. -->\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-danger\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{cardExpiryMsg}}\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\" for=\"cardCvc-element\">CVC <font color=\"red\">*</font></label>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-control\" id=\"cardCvc-element\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- a Stripe Element will be inserted here. -->\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-danger\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{cardCVCMsg}}\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"col-sm-3 control-label\" for=\"postalCode-element\">Zip/Postal Code <font color=\"red\">*</font></label>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-9\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-control\" id=\"postalCode-element\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t-->\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\r\n\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<br>\t\t\t\r\n\t\t\t\t\r\n\r\n\r\n\r\n\t</div>\r\n\r\n\r\n\t<div class=\"col-sm-1\"></div>\r\n\r\n\r\n\t<div class=\"col-sm-4\">\r\n\t\t<div class=\"row\">\r\n\t\t\t<app-checkout-items\r\n\t\t\t[cartItemsArray] = \"cartItems\"\r\n\t\t\t[currency] = \"currency\">\r\n\t\t\t</app-checkout-items>\r\n\t\t</div>\r\n\r\n\t\t<div class=\"row\">\r\n\t\t\t<app-checkout-orderdetails\r\n\t\t\t[_cartTotalPrice] = \"cartTotalPrice\"\r\n\t\t\t[currency] = \"currency\">\r\n\t\t\t</app-checkout-orderdetails>\r\n\t\t</div>\r\n\t\t\r\n\t\t<div class=\"row\">\r\n\t\t\t<div class=\"text-center\">\r\n\t\t\t\t<button type=\"submit\" class=\"btn btn-success\">Buy now ${{coinPriceDisplay(roundPrice(cartTotalPrice, 2))}} {{currency.currency}}</button>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<ng-container *ngIf=\"errorMsg\">\r\n\t\t\t<br>\r\n\t\t\t<div class=\"row\">\r\n\t\t\t<div class=\"alert alert-danger text-center\">\r\n\t\t\t  {{errorMsg}}\r\n\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t  </ng-container>\r\n\t</div>\r\n</form>\r\n</div>\r\n"
+module.exports = "<app-header [totalQuantity] = \"total_qty\"></app-header>\r\n<app-checkout-form\r\n[cartItems] = \"cartItems\"\r\n[currency] = \"currency\"\r\n[cartTotalPrice] = \"cartTotalPrice\"\r\n[errorMsg] = \"errorMsg\"\r\n(stripeTokenEmitter)=\"stripeTokenHandler($event)\"\r\n></app-checkout-form>\r\n"
 
 /***/ }),
 
@@ -349,11 +568,10 @@ module.exports = "<app-header [totalQuantity] = \"total_qty\"></app-header>\r\n<
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CheckoutComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_redux_store__ = __webpack_require__("./node_modules/@angular-redux/store/lib/src/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_redux_store___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__angular_redux_store__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_shopping_cart_service__ = __webpack_require__("./src/app/services/shopping.cart.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modules_round_module__ = __webpack_require__("./src/app/modules/round.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_redux_store__ = __webpack_require__("./node_modules/@angular-redux/store/lib/src/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_redux_store___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__angular_redux_store__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_shopping_cart_service__ = __webpack_require__("./src/app/services/shopping.cart.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modules_round_module__ = __webpack_require__("./src/app/modules/round.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -368,22 +586,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var CheckoutComponent = /** @class */ (function () {
-    function CheckoutComponent(shoppingcart, _router, _fb, ngRedux) {
+    function CheckoutComponent(shoppingcart, _router, ngRedux) {
         this.shoppingcart = shoppingcart;
         this._router = _router;
-        this._fb = _fb;
         this.ngRedux = ngRedux;
         this.errorMsg = "";
-        this.cardNumberMsg = "";
-        this.cardExpiryMsg = "";
-        this.cardCVCMsg = "";
-        this.cardMsg = "";
-        this.nameMsg = "";
-        this.addressLine1Msg = "";
-        this.cityMsg = "";
-        this.countryMsg = "";
         this.cartItems = []; //this array variable stores the shopping cart item objects
         this.cartTotalPrice = 0; //this variable stores the total price of all the items in the shopping cart
         this.total_qty = 0; //stores the number of items in the variable and this number is shown beside the shopping cart link
@@ -393,33 +601,9 @@ var CheckoutComponent = /** @class */ (function () {
             forex: "USD/USD",
             rate: 1
         };
-        this.checkoutOrderInfo = {
-            name: '',
-            addressLine1: '',
-            addressLine2: '',
-            addressCity: '',
-            addressState: '',
-            addressZip: '',
-            addressCountry: ''
-        };
     }
     CheckoutComponent.prototype.ngOnInit = function () {
         this.checkCart();
-        this.createForm();
-        this.initCard();
-    };
-    CheckoutComponent.prototype.createForm = function () {
-        this.shoppingCartCheckoutForm = this._fb.group({
-            name: ["", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* Validators */].required],
-            shippingAddress: this._fb.group({
-                addressLine1: ["", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* Validators */].required],
-                addressLine2: [""],
-                city: ["", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* Validators */].required],
-                state: [""],
-                zip: [""],
-                country: ["", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* Validators */].required]
-            })
-        });
     };
     CheckoutComponent.prototype.convertTotalPrice = function () {
         var _this = this;
@@ -433,7 +617,7 @@ var CheckoutComponent = /** @class */ (function () {
             else {
                 this.cartTotalPrice = 0;
                 this.cartItems.map(function (x) {
-                    _this.cartTotalPrice = _this.cartTotalPrice + (Object(__WEBPACK_IMPORTED_MODULE_5__modules_round_module__["a" /* round */])(x.item.price * _this.currency.rate, 2) * x.qty);
+                    _this.cartTotalPrice = _this.cartTotalPrice + (Object(__WEBPACK_IMPORTED_MODULE_4__modules_round_module__["a" /* round */])(x.item.price * _this.currency.rate, 2) * x.qty);
                 });
             }
         }
@@ -446,13 +630,6 @@ var CheckoutComponent = /** @class */ (function () {
             _this.currency = newCurrency.switchCurrencyReducer.currency;
             _this.convertTotalPrice(); //converts the price using the selected currency
         });
-    };
-    CheckoutComponent.prototype.coinPriceDisplay = function (price) {
-        return price.toFixed(2);
-    };
-    //this function is used so that the html template can access the round function module 
-    CheckoutComponent.prototype.roundPrice = function (num, precision) {
-        return Object(__WEBPACK_IMPORTED_MODULE_5__modules_round_module__["a" /* round */])(num, precision);
     };
     CheckoutComponent.prototype.checkCart = function () {
         var _this = this;
@@ -474,18 +651,6 @@ var CheckoutComponent = /** @class */ (function () {
             _this.total_qty = data.totalQuantity;
         }, function (err) { return console.log(err); }, function () { return console.log('checkout done'); });
     };
-    CheckoutComponent.prototype.initCard = function () {
-        this.stripe = Stripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
-        this.elements = this.stripe.elements();
-        this.cardNumber = this.elements.create('cardNumber', { placeholder: "4242424242424242" });
-        this.cardExpiry = this.elements.create('cardExpiry');
-        this.cardCvc = this.elements.create('cardCvc');
-        //this.postalCode = this.elements.create('postalCode');
-        this.cardNumber.mount('#cardNumber-element');
-        this.cardExpiry.mount('#cardExpiry-element');
-        this.cardCvc.mount('#cardCvc-element');
-        //this.postalCode.mount('#postalCode-element');
-    };
     CheckoutComponent.prototype.stripeTokenHandler = function (token) {
         var _this = this;
         this.shoppingcart.makeCharge(token.id, this.currency)
@@ -500,98 +665,6 @@ var CheckoutComponent = /** @class */ (function () {
             _this.errorMsg = err.error.msg;
         }, function () { console.log('Checkout complete'); });
     };
-    CheckoutComponent.prototype.clearMsg = function () {
-        this.errorMsg = "";
-        this.cardNumberMsg = "";
-        this.cardExpiryMsg = "";
-        this.cardCVCMsg = "";
-        this.cardMsg = "";
-        this.nameMsg = "";
-        this.addressLine1Msg = "";
-        this.cityMsg = "";
-        this.countryMsg = "";
-    };
-    CheckoutComponent.prototype.createToken = function (_shoppingCartCheckoutForm) {
-        var _this = this;
-        this.clearMsg();
-        if (!_shoppingCartCheckoutForm.valid) {
-            if (_shoppingCartCheckoutForm.value.name == "") {
-                this.nameMsg = "Full Name is required";
-            }
-            if (_shoppingCartCheckoutForm.value.shippingAddress.addressLine1 == "") {
-                this.addressLine1Msg = "Address Line 1 is required";
-            }
-            if (_shoppingCartCheckoutForm.value.shippingAddress.city == "") {
-                this.cityMsg = "City is required";
-            }
-            if (_shoppingCartCheckoutForm.value.shippingAddress.country == "") {
-                this.countryMsg = "Country is required";
-            }
-        }
-        else {
-            this.stripe.createToken(this.cardNumber, {
-                name: _shoppingCartCheckoutForm.value.name,
-                address_line1: _shoppingCartCheckoutForm.value.shippingAddress.addressLine1,
-                address_line2: _shoppingCartCheckoutForm.value.shippingAddress.addressLine2,
-                address_city: _shoppingCartCheckoutForm.value.shippingAddress.city,
-                address_state: _shoppingCartCheckoutForm.value.shippingAddress.state,
-                address_zip: _shoppingCartCheckoutForm.value.shippingAddress.zip,
-                address_country: _shoppingCartCheckoutForm.value.shippingAddress.country
-            })
-                .then(function (result) {
-                if (result.error) {
-                    if (result.error.code == "invalid_number") {
-                        _this.cardNumberMsg = result.error.message;
-                    }
-                    else if (result.error.code == "incorrect_number") {
-                        _this.cardNumberMsg = result.error.message;
-                    }
-                    else if (result.error.code == "incomplete_number") {
-                        _this.cardNumberMsg = result.error.message;
-                    }
-                    else if (result.error.code == "incomplete_expiry") {
-                        _this.cardExpiryMsg = result.error.message;
-                    }
-                    else if (result.error.code == "invalid_expiry_month") {
-                        _this.cardExpiryMsg = result.error.message;
-                    }
-                    else if (result.error.code == "invalid_expiry_year") {
-                        _this.cardExpiryMsg = result.error.message;
-                    }
-                    else if (result.error.code == "invalid_expiry_year_past") {
-                        _this.cardExpiryMsg = result.error.message;
-                    }
-                    else if (result.error.code == "incomplete_cvc") {
-                        _this.cardCVCMsg = result.error.message;
-                    }
-                    else if (result.error.code == "incorrect_cvc") {
-                        _this.cardCVCMsg = result.error.message;
-                    }
-                    else if (result.error.code == "invalid_cvc") {
-                        _this.cardCVCMsg = result.error.message;
-                    }
-                    else if (result.error.code == "expired_card") {
-                        _this.cardMsg = result.error.message;
-                    }
-                    else if (result.error.code == "card_declined") {
-                        _this.cardMsg = result.error.message;
-                    }
-                    else if (result.error.code == "missing") {
-                        _this.cardMsg = result.error.message;
-                    }
-                    else if (result.error.code == "processing_error") {
-                        _this.cardMsg = result.error.message;
-                    }
-                    else if (result.error.code == "invalid_swipe_data") {
-                        _this.cardMsg = result.error.message;
-                    }
-                }
-                else {
-                    _this.stripeTokenHandler(result.token);
-                }
-            });
-        }
-    };
     CheckoutComponent.prototype.ngOnDestroy = function () {
         if (this.currencySubscription) {
             this.currencySubscription.unsubscribe();
@@ -603,10 +676,9 @@ var CheckoutComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/checkout/checkout.component.html"),
             styles: [__webpack_require__("./src/app/checkout/checkout.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__services_shopping_cart_service__["a" /* ShoppingCartService */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_shopping_cart_service__["a" /* ShoppingCartService */],
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_redux_store__["NgRedux"]])
+            __WEBPACK_IMPORTED_MODULE_2__angular_redux_store__["NgRedux"]])
     ], CheckoutComponent);
     return CheckoutComponent;
 }());
@@ -628,9 +700,10 @@ var CheckoutComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__checkout_checkout_component__ = __webpack_require__("./src/app/checkout/checkout.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__checkout_orderdetails_checkout_orderdetails_component__ = __webpack_require__("./src/app/checkout/checkout-orderdetails/checkout-orderdetails.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__checkout_items_checkout_items_component__ = __webpack_require__("./src/app/checkout/checkout-items/checkout-items.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_user_service__ = __webpack_require__("./src/app/services/user.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_check_auth_service__ = __webpack_require__("./src/app/services/check.auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__header_header_module__ = __webpack_require__("./src/app/header/header.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__checkout_form_checkout_form_component__ = __webpack_require__("./src/app/checkout/checkout-form/checkout-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_user_service__ = __webpack_require__("./src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_check_auth_service__ = __webpack_require__("./src/app/services/check.auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__header_header_module__ = __webpack_require__("./src/app/header/header.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -651,6 +724,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var checkoutRoutes = [
     //{ path: 'home', component: HomepageComponent},
     //{ path: 'login', component: LoginComponent, canActivate: [isNotAuthGuard]},
@@ -658,7 +732,7 @@ var checkoutRoutes = [
     //{ path: 'purchase_history/order_details/:id', component: OrderDetailsComponent, canActivate: [isAuthGuard]},
     //{ path: 'purchase_history', component: PurchaseHistoryComponent, canActivate: [isAuthGuard]},
     //{ path: 'cart', component: ShoppingCartComponent},
-    { path: 'checkout', component: __WEBPACK_IMPORTED_MODULE_5__checkout_checkout_component__["a" /* CheckoutComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_9__services_check_auth_service__["a" /* isAuthGuard */]] },
+    { path: 'checkout', component: __WEBPACK_IMPORTED_MODULE_5__checkout_checkout_component__["a" /* CheckoutComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_10__services_check_auth_service__["a" /* isAuthGuard */]] },
 ];
 var CheckoutModule = /** @class */ (function () {
     function CheckoutModule() {
@@ -668,7 +742,7 @@ var CheckoutModule = /** @class */ (function () {
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* RouterModule */].forChild(checkoutRoutes),
-                __WEBPACK_IMPORTED_MODULE_10__header_header_module__["a" /* HeaderModule */],
+                __WEBPACK_IMPORTED_MODULE_11__header_header_module__["a" /* HeaderModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_forms__["b" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_forms__["c" /* ReactiveFormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */]
@@ -676,11 +750,12 @@ var CheckoutModule = /** @class */ (function () {
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_5__checkout_checkout_component__["a" /* CheckoutComponent */],
                 __WEBPACK_IMPORTED_MODULE_6__checkout_orderdetails_checkout_orderdetails_component__["a" /* CheckoutOrderdetailsComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__checkout_items_checkout_items_component__["a" /* CheckoutItemsComponent */]
+                __WEBPACK_IMPORTED_MODULE_7__checkout_items_checkout_items_component__["a" /* CheckoutItemsComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__checkout_form_checkout_form_component__["a" /* CheckoutFormComponent */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_8__services_user_service__["a" /* UserService */],
-                __WEBPACK_IMPORTED_MODULE_9__services_check_auth_service__["a" /* isAuthGuard */]
+                __WEBPACK_IMPORTED_MODULE_9__services_user_service__["a" /* UserService */],
+                __WEBPACK_IMPORTED_MODULE_10__services_check_auth_service__["a" /* isAuthGuard */]
             ],
             exports: [__WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* RouterModule */]]
         })
@@ -792,18 +867,18 @@ var HeaderComponent = /** @class */ (function () {
             forex: "USD/USD",
             rate: 1
         };
-        this.outputSelectedCurrency = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
     HeaderComponent.prototype.ngOnInit = function () {
         this.checkAuthentication();
         this.checkCurrency();
     };
+    //@Output() outputSelectedCurrency = new EventEmitter<currency>();
     HeaderComponent.prototype.checkCurrency = function () {
         var _this = this;
         this.shoppingCart.checkCurrency()
             .subscribe(function (data) {
             _this.selectedCurrency = data.selectedCurrency;
-            _this.outputSelectedCurrency.emit(data.selectedCurrency);
+            //this.outputSelectedCurrency.emit(data.selectedCurrency);
             _this.ngRedux.dispatch({ type: _this.selectedCurrency });
         }, function (err) {
             console.log(err);
@@ -845,10 +920,6 @@ var HeaderComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
         __metadata("design:type", Number)
     ], HeaderComponent.prototype, "totalQuantity", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
-        __metadata("design:type", Object)
-    ], HeaderComponent.prototype, "outputSelectedCurrency", void 0);
     HeaderComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-header',
@@ -1926,6 +1997,19 @@ var LogoutModule = /** @class */ (function () {
     return LogoutModule;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/modules/array.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = generateArray;
+//This function turns objects into an array
+function generateArray(obj) {
+    return Object.values(obj);
+}
 
 
 /***/ }),
@@ -3198,6 +3282,160 @@ var UserService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/shopping-cart/shopping-cart-form/shopping-cart-form.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ".buttonlink {\r\n    cursor: pointer;\r\n}\r\n\r\n.padding-top {\r\n    padding-top: 25px;\r\n}\r\n\r\n.padding-bottom {\r\n    padding-bottom: 25px;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/shopping-cart/shopping-cart-form/shopping-cart-form.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container padding-top padding-bottom\">\n  <div class=\"row text-center\">\n      <h3>Shopping Cart</h3>\n  </div><br>\n  <form [formGroup]=\"updateCartForm\">\n      <div formArrayName=\"carts\">\n      <table class=\"table table-hover table-condensed\">\n          <thead>\n              <tr class=\"active\">\n                  <th>Product</th>\n                  <th>Quantity</th>\n                  <th class=\"text-right\">Price</th>\n                  <th class=\"text-right\">Total</th>\n                  <th></th>\n              </tr>\n          </thead>\n          <tbody>\n              <ng-container *ngFor=\"let cart of updateCartForm.controls.carts.controls; let i=index\"> <!-- loops through the items to be displayed -->\n              <tr [formGroupName]=\"i\">\n                  <td class=\"col-sm-5\">\n                      <div class=\"media\">\n                          <div class=\"media-left\">\n                              <img class=\"media-object\" src=\"/assets/images/{{cartItems[i].item.imagePath}}\" style=\"width: 80px; height: 80px;\">\n                          </div>\n                          <div class=\"media-body\">\n                              {{updateCartForm.controls.carts.controls[i].controls.productName.value}}\n                          </div>\n                      </div>\n                  </td>\n                  <td class=\"col-sm-2\">\n                      <input type=\"number\" min = \"1\" step = \"1\" max=\"999\" siz = \"3\" style=\"width: 5em\" class=\"text-center form-control\" id=\"productQuantity\" name=\"productQuantity\" formControlName=\"productQuantity\" #prdQty required>\n                      <ng-container *ngIf=\"!updateCartForm.controls.carts.controls[i].valid\">\n                        <div class=\"text-danger\">Invalid value</div>\n                      </ng-container>\n\n                  </td>\n                  <td class=\"col-sm-2 text-right\">\n                      ${{coinPrice(updateCartForm.controls.carts.controls[i].controls.productPrice.value)}} {{currency.currency}}\n                  </td>\n                  <td class=\"col-sm-2 text-right\">\n                      ${{coinPrice(updateCartForm.controls.carts.controls[i].controls.productPrice.value, prdQty.value)}} {{currency.currency}}\n                  </td>\n                  <td class=\"col-sm-1\">\n                      <a class=\"buttonlink pull-right\" (click)=\"removeItem(i)\"><span class=\"glyphicon glyphicon-trash\"></span></a>\n                  </td>\n\n              </tr>\n              </ng-container>\n\n              <!--\n              <td class=\"col-sm-1 col-md-1\" style=\"text-align: center\">\n                  <input type=\"number\" class=\"form-control\" id=\"item_quantity\" value=\"{{cartItem.qty}}\">\n              </td>\n              -->\n              <tr>\n                      <td class=\"col-sm-5\">   </td>\n                      <td class=\"col-sm-2\">   </td>\n                      <td class=\"col-sm-2\">   </td>\n                      <td class=\"col-sm-2\">   </td>\n                      <td class=\"col-sm-1\">   </td>\n              </tr>\n\n              <tr>\n                  <td class=\"col-sm-5\">   </td>\n                  <td class=\"col-sm-2\">   </td>\n                  <td class=\"text-right col-sm-2\"><h5>Subtotal</h5></td>\n                  <td class=\"text-right col-sm-2\"><h5><strong>${{coinPriceDisplay(cartTotalPrice)}} {{currency.currency}}</strong></h5></td>\n                  <td class=\"col-sm-1\">   </td>\n              </tr>\n              <tr>\n                  <td class=\"col-sm-5\">   </td>\n                  <td class=\"col-sm-2\">   </td>\n                  <td class=\"text-right col-sm-2\"><h5>Shipping</h5></td>\n                  <td class=\"text-right col-sm-2\"><h5><strong>$0</strong></h5></td>\n                  <td class=\"col-sm-1\">   </td>\n              </tr>\n              <tr>\n                  <td class=\"col-sm-5\">   </td>\n                  <td class=\"col-sm-2\">   </td>\n                  <td class=\"text-right col-sm-2\"><h5><strong>Grand Total</strong></h5></td>\n                  <td class=\"text-right col-sm-2\"><h5><strong>${{coinPriceDisplay(cartTotalPrice)}} {{currency.currency}}</strong></h5></td>\n                  <td class=\"col-sm-1\">   </td>\n              </tr>\n          </tbody>\n      </table>\n      </div>\n\n      <ng-container *ngIf=\"updateCartForm.valid; else elseBlock\">\n      <div class=\"row\">\n          <div class=\"col-sm-12\">\n              <a routerLink=\"/checkout\" type=\"button\" class=\"btn btn-success active pull-right\">Checkout</a>            \n          </div>\n      </div>\n      </ng-container>\n      <ng-template #elseBlock>\n          <div class=\"row\">\n              <div class=\"col-sm-12\">\n                  <a routerLink=\"/checkout\" type=\"button\" class=\"btn btn-success disabled pull-right\">Checkout</a>            \n              </div>\n          </div>\n      </ng-template>\n      <br>\n  </form>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/shopping-cart/shopping-cart-form/shopping-cart-form.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShoppingCartFormComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modules_round_module__ = __webpack_require__("./src/app/modules/round.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__objects_currency_class__ = __webpack_require__("./src/app/objects/currency.class.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ShoppingCartFormComponent = /** @class */ (function () {
+    function ShoppingCartFormComponent(_fb) {
+        this._fb = _fb;
+        this.updateCartEmitter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.createForm();
+    }
+    ShoppingCartFormComponent.prototype.ngOnInit = function () {
+    };
+    ShoppingCartFormComponent.prototype.ngOnChanges = function (changes) {
+        if (changes["cartItems"]) {
+            var items = changes["cartItems"].currentValue;
+            this.showCartItems(items);
+        }
+    };
+    ShoppingCartFormComponent.prototype.ngOnDestroy = function () {
+        if (this.updateCartSubscription) {
+            this.updateCartSubscription.unsubscribe(); // <- New
+        }
+    };
+    ShoppingCartFormComponent.prototype.formUpdateEvent = function () {
+        var _this = this;
+        this.updateCartSubscription = this.updateCartForm.valueChanges
+            .debounceTime(500)
+            .distinctUntilChanged()
+            .subscribe(function (data) {
+            //this will automatically update the total price and the store session
+            if (_this.updateCartForm.valid) {
+                //console.log(data.carts);
+                _this.updateCartEmitter.emit(data.carts);
+            }
+        });
+    };
+    ShoppingCartFormComponent.prototype.createForm = function () {
+        //create the form
+        this.updateCartForm = this._fb.group({
+            carts: this._fb.array([])
+        });
+        this.formUpdateEvent();
+    };
+    /*
+      initCartForm() {
+        return this._fb.group({
+          productName:[''],
+          productQuantity: ['', Validators.required, Validators.pattern("^[1-9][0-9]*$")],  //regular expression for positive integers
+          productPrice: [''],
+          productTotalPrice: ['']
+        });
+      }
+    */
+    ShoppingCartFormComponent.prototype.showCartItems = function (items) {
+        var _this = this;
+        //console.log(items);
+        var control = this.updateCartForm.controls['carts'];
+        items.map(function (x, i) {
+            control.insert(i, _this._fb.group({
+                productName: [x.item.title],
+                productQuantity: [x.qty, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* Validators */].pattern("^[1-9][0-9]*$")]],
+                productPrice: [x.item.price],
+                productTotalPrice: ['']
+            }));
+        });
+        //console.log(this.updateCartForm);
+        //control.removeAt(items.length);
+    };
+    ShoppingCartFormComponent.prototype.removeItem = function (i) {
+        // remove address from the list
+        var control = this.updateCartForm.controls['carts'];
+        control.removeAt(i);
+        this.cartItems.splice(i, 1);
+    };
+    //This function is for display purposes to show the price with 2 decimal places
+    ShoppingCartFormComponent.prototype.coinPrice = function (price, qty) {
+        if (qty === void 0) { qty = 1; }
+        //console.log(this.round(33 * 1.287168 * 2, 2));
+        return (Object(__WEBPACK_IMPORTED_MODULE_2__modules_round_module__["a" /* round */])(price * this.currency.rate, 2) * qty).toFixed(2);
+    };
+    ShoppingCartFormComponent.prototype.coinPriceDisplay = function (price) {
+        return price.toFixed(2);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], ShoppingCartFormComponent.prototype, "cartItems", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3__objects_currency_class__["a" /* currency */])
+    ], ShoppingCartFormComponent.prototype, "currency", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], ShoppingCartFormComponent.prototype, "cartTotalPrice", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], ShoppingCartFormComponent.prototype, "formCheck", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Number)
+    ], ShoppingCartFormComponent.prototype, "totalQuantity", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", Object)
+    ], ShoppingCartFormComponent.prototype, "updateCartEmitter", void 0);
+    ShoppingCartFormComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-shopping-cart-form',
+            template: __webpack_require__("./src/app/shopping-cart/shopping-cart-form/shopping-cart-form.component.html"),
+            styles: [__webpack_require__("./src/app/shopping-cart/shopping-cart-form/shopping-cart-form.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]])
+    ], ShoppingCartFormComponent);
+    return ShoppingCartFormComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/shopping-cart/shopping-cart.component.css":
 /***/ (function(module, exports) {
 
@@ -3208,7 +3446,7 @@ module.exports = ".buttonlink {\r\n    cursor: pointer;\r\n}\r\n\r\n.padding-top
 /***/ "./src/app/shopping-cart/shopping-cart.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header\r\n[totalQuantity] = \"total_qty\"\r\n(outputSelectedCurrency) = \"shoppingCartItems($event)\">\r\n</app-header>\r\n\r\n<ng-container *ngIf = \"total_qty!=0\"> <!-- if there are items in shopping cart -->\r\n    <div class=\"container padding-top padding-bottom\">\r\n        <div class=\"row text-center\">\r\n            <h3>Shopping Cart</h3>\r\n        </div><br>\r\n        <form [formGroup]=\"updateCartForm\">\r\n            <div formArrayName=\"carts\">\r\n            <table class=\"table table-hover table-condensed\">\r\n                <thead>\r\n                    <tr class=\"active\">\r\n                        <th>Product</th>\r\n                        <th>Quantity</th>\r\n                        <th class=\"text-right\">Price</th>\r\n                        <th class=\"text-right\">Total</th>\r\n                        <th></th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <ng-container *ngFor=\"let cart of updateCartForm.controls.carts.controls; let i=index\"> <!-- loops through the items to be displayed -->\r\n                    <tr [formGroupName]=\"i\">\r\n                        <td class=\"col-sm-5\">\r\n                            <div class=\"media\">\r\n                                <div class=\"media-left\">\r\n                                    <img class=\"media-object\" src=\"/assets/images/{{cartItems[i].item.imagePath}}\" style=\"width: 80px; height: 80px;\">\r\n                                </div>\r\n                                <div class=\"media-body\">\r\n                                    {{updateCartForm.controls.carts.controls[i].controls.productName.value}}\r\n                                </div>\r\n                            </div>\r\n                        </td>\r\n                        <td class=\"col-sm-2\">\r\n                            <input type=\"number\" min = \"1\" step = \"1\" max=\"999\" siz = \"3\" style=\"width: 5em\" class=\"text-center form-control\" id=\"productQuantity\" name=\"productQuantity\" formControlName=\"productQuantity\" #prdQty required>\r\n                            <div class=\"text-danger\">{{qtyMsg[i]}}</div>\r\n                        </td>\r\n                        <td class=\"col-sm-2 text-right\">\r\n                            ${{coinPrice(updateCartForm.controls.carts.controls[i].controls.productPrice.value)}} {{currency.currency}}\r\n                        </td>\r\n                        <td class=\"col-sm-2 text-right\">\r\n                            ${{coinPrice(updateCartForm.controls.carts.controls[i].controls.productPrice.value, prdQty.value)}} {{currency.currency}}\r\n                        </td>\r\n                        <td class=\"col-sm-1\">\r\n                            <a class=\"buttonlink pull-right\" (click)=\"removeItem(i)\"><span class=\"glyphicon glyphicon-trash\"></span></a>\r\n                        </td>\r\n\r\n                    </tr>\r\n                    </ng-container>\r\n\r\n                    <!--\r\n                    <td class=\"col-sm-1 col-md-1\" style=\"text-align: center\">\r\n                        <input type=\"number\" class=\"form-control\" id=\"item_quantity\" value=\"{{cartItem.qty}}\">\r\n                    </td>\r\n                    -->\r\n                    <tr>\r\n                            <td class=\"col-sm-5\">   </td>\r\n                            <td class=\"col-sm-2\">   </td>\r\n                            <td class=\"col-sm-2\">   </td>\r\n                            <td class=\"col-sm-2\">   </td>\r\n                            <td class=\"col-sm-1\">   </td>\r\n                    </tr>\r\n\r\n                    <tr>\r\n                        <td class=\"col-sm-5\">   </td>\r\n                        <td class=\"col-sm-2\">   </td>\r\n                        <td class=\"text-right col-sm-2\"><h5>Subtotal</h5></td>\r\n                        <td class=\"text-right col-sm-2\"><h5><strong>${{coinPriceDisplay(cartTotalPrice)}} {{currency.currency}}</strong></h5></td>\r\n                        <td class=\"col-sm-1\">   </td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td class=\"col-sm-5\">   </td>\r\n                        <td class=\"col-sm-2\">   </td>\r\n                        <td class=\"text-right col-sm-2\"><h5>Shipping</h5></td>\r\n                        <td class=\"text-right col-sm-2\"><h5><strong>$0</strong></h5></td>\r\n                        <td class=\"col-sm-1\">   </td>\r\n                    </tr>\r\n                    <tr>\r\n                        <td class=\"col-sm-5\">   </td>\r\n                        <td class=\"col-sm-2\">   </td>\r\n                        <td class=\"text-right col-sm-2\"><h5><strong>Grand Total</strong></h5></td>\r\n                        <td class=\"text-right col-sm-2\"><h5><strong>${{coinPriceDisplay(cartTotalPrice)}} {{currency.currency}}</strong></h5></td>\r\n                        <td class=\"col-sm-1\">   </td>\r\n                    </tr>\r\n                </tbody>\r\n            </table>\r\n            </div>\r\n\r\n            <ng-container *ngIf=\"qtyMsg===undefined||qtyMsg.length==0; else elseBlock\">\r\n            <div class=\"row\">\r\n                <div class=\"col-sm-12\">\r\n                    <a routerLink=\"/checkout\" type=\"button\" class=\"btn btn-success active pull-right\">Checkout</a>            \r\n                </div>\r\n            </div>\r\n            </ng-container>\r\n            <ng-template #elseBlock>\r\n                <div class=\"row\">\r\n                    <div class=\"col-sm-12\">\r\n                        <a routerLink=\"/checkout\" type=\"button\" class=\"btn btn-success disabled pull-right\">Checkout</a>            \r\n                    </div>\r\n                </div>\r\n            </ng-template>\r\n            <br>\r\n        </form>\r\n    </div>\r\n\r\n</ng-container>\r\n<ng-container *ngIf = \"total_qty==0\"> <!-- if there are no items in shopping cart -->\r\n    <div class=\"container padding-top\">\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-12 text-center\">\r\n                <h2>No Items in Cart</h2>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</ng-container>\r\n\r\n"
+module.exports = "<app-header [totalQuantity] = \"total_qty\"></app-header>\r\n\r\n<ng-container *ngIf = \"total_qty!=0\"> <!-- if there are items in shopping cart -->\r\n    <app-shopping-cart-form\r\n    [cartItems] = \"cartItems\"\r\n    [currency] = \"currency\"\r\n    [cartTotalPrice] = \"cartTotalPrice\"\r\n    [formCheck] = \"formCheck\"\r\n    [totalQuantity] = \"total_qty\"\r\n    (updateCartEmitter)=\"updateCart($event)\"\r\n    ></app-shopping-cart-form>\r\n</ng-container>\r\n\r\n<ng-container *ngIf = \"total_qty==0\"> <!-- if there are no items in shopping cart -->\r\n    <div class=\"container padding-top\">\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-12 text-center\">\r\n                <h2>No Items in Cart</h2>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</ng-container>\r\n\r\n"
 
 /***/ }),
 
@@ -3218,12 +3456,11 @@ module.exports = "<app-header\r\n[totalQuantity] = \"total_qty\"\r\n(outputSelec
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShoppingCartComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_redux_store__ = __webpack_require__("./node_modules/@angular-redux/store/lib/src/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_redux_store___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__angular_redux_store__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_shopping_cart_service__ = __webpack_require__("./src/app/services/shopping.cart.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modules_round_module__ = __webpack_require__("./src/app/modules/round.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_redux_store__ = __webpack_require__("./node_modules/@angular-redux/store/lib/src/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_redux_store___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_redux_store__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_shopping_cart_service__ = __webpack_require__("./src/app/services/shopping.cart.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modules_round_module__ = __webpack_require__("./src/app/modules/round.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modules_array_module__ = __webpack_require__("./src/app/modules/array.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3238,71 +3475,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var ShoppingCartComponent = /** @class */ (function () {
-    function ShoppingCartComponent(shoppingcart, _router, _fb, ngRedux) {
+    function ShoppingCartComponent(shoppingcart, 
+        //private _router: Router,
+        ngRedux) {
         this.shoppingcart = shoppingcart;
-        this._router = _router;
-        this._fb = _fb;
         this.ngRedux = ngRedux;
         this.cartItems = []; //this array variable stores the shopping cart item objects
         this.qtyMsg = [];
         this.cartTotalPrice = 0; //this variable stores the total price of all the items in the shopping cart
         this.total_qty = 0; // this variable stores the total quantity
-        //private currencyRate: number = 1;
         this.currency = {
             currency: " USD",
             forex: "USD/USD",
             rate: 1
         };
+        this.testData = "";
     }
     ShoppingCartComponent.prototype.ngOnInit = function () {
-        //initialize the form
-        this.updateCartForm = this._fb.group({
-            carts: this._fb.array([
-                this.initCartForm(),
-            ])
-        });
-        //this.getCurrencyRate();
-        //this.shoppingCartItems();
-        this.formUpdateEvent();
-    };
-    ShoppingCartComponent.prototype.formUpdateEvent = function () {
-        var _this = this;
-        this.updateCartSubscription = this.updateCartForm.valueChanges
-            .debounceTime(500)
-            .distinctUntilChanged()
-            .subscribe(function (data) {
-            var valid = true;
-            var totalPrice = 0;
-            _this.qtyMsg = [];
-            //this will automatically update the total price and the store session
-            data.carts.map(function (x, i) {
-                if (Number(x.productQuantity) < 1 || !Number.isInteger(Number(x.productQuantity))) {
-                    _this.qtyMsg[i] = "invalid input";
-                    valid = false;
-                }
-                totalPrice = totalPrice + (Object(__WEBPACK_IMPORTED_MODULE_5__modules_round_module__["a" /* round */])(x.productPrice * _this.currency.rate, 2) * x.productQuantity);
-            });
-            //console.log(this.updateCartForm);
-            //console.log(data);
-            if (valid) {
-                _this.cartTotalPrice = totalPrice;
-                //console.log(this.cartTotalPrice);
-                if (_this.total_qty > 0) {
-                    _this.updateCart(data);
-                }
-            }
-        });
-    };
-    //This function is for display purposes to show the price with 2 decimal places
-    ShoppingCartComponent.prototype.coinPrice = function (price, qty) {
-        if (qty === void 0) { qty = 1; }
-        //console.log(this.round(33 * 1.287168 * 2, 2));
-        return (Object(__WEBPACK_IMPORTED_MODULE_5__modules_round_module__["a" /* round */])(price * this.currency.rate, 2) * qty).toFixed(2);
-    };
-    ShoppingCartComponent.prototype.coinPriceDisplay = function (price) {
-        return price.toFixed(2);
+        this.shoppingCartItems();
     };
     ShoppingCartComponent.prototype.getCurrencyRate = function () {
         var _this = this;
@@ -3310,121 +3501,67 @@ var ShoppingCartComponent = /** @class */ (function () {
             .subscribe(function (newCurrency) {
             //this.currencyRate = newCurrency.switchCurrencyReducer.currency.rate;
             _this.currency = newCurrency.switchCurrencyReducer.currency;
-            if (_this.cartItems.length !== 0) {
+            if (_this.cartItems.length > 0) {
                 if (_this.currency.rate == 1) {
                     _this.cartTotalPrice = 0;
                     _this.cartItems.map(function (x) {
-                        _this.cartTotalPrice = _this.cartTotalPrice + (Object(__WEBPACK_IMPORTED_MODULE_5__modules_round_module__["a" /* round */])(x.price, 2));
+                        _this.cartTotalPrice = _this.cartTotalPrice + (Object(__WEBPACK_IMPORTED_MODULE_3__modules_round_module__["a" /* round */])(x.price, 2));
                     });
                 }
                 else {
                     _this.cartTotalPrice = 0;
                     _this.cartItems.map(function (x) {
-                        _this.cartTotalPrice = _this.cartTotalPrice + (Object(__WEBPACK_IMPORTED_MODULE_5__modules_round_module__["a" /* round */])(x.item.price * _this.currency.rate, 2) * x.qty);
+                        _this.cartTotalPrice = _this.cartTotalPrice + (Object(__WEBPACK_IMPORTED_MODULE_3__modules_round_module__["a" /* round */])(x.item.price * _this.currency.rate, 2) * x.qty);
                     });
                 }
             }
-            //console.log(this.cartTotalPrice);
-            //console.log(this.currency.rate);
-            //console.log(this.cartItems);
         });
     };
-    ShoppingCartComponent.prototype.initCartForm = function () {
-        return this._fb.group({
-            productName: [''],
-            productQuantity: [''],
-            productPrice: [''],
-            productTotalPrice: ['']
-        });
-    };
-    ShoppingCartComponent.prototype.showCartItems = function (items) {
-        var control = this.updateCartForm.controls['carts'];
-        for (var i = 0; i < items.length; i++) {
-            control.push(this._fb.group({
-                productName: [items[i].item.title],
-                productQuantity: [items[i].qty],
-                productPrice: [items[i].item.price],
-                productTotalPrice: ['']
-            }));
-        }
-        ;
-    };
-    ShoppingCartComponent.prototype.clearCartFirstItem = function () {
-        //Clears the first item because its initialized with ''
-        var control = this.updateCartForm.controls['carts'];
-        control.removeAt(0);
-    };
-    ShoppingCartComponent.prototype.shoppingCartItems = function (cur) {
+    ShoppingCartComponent.prototype.shoppingCartItems = function () {
         var _this = this;
         this.shoppingcart.getCartItems() //getCartItems observable gets the shopping cart items and stores it into the cartItems array
             .subscribe(function (data) {
-            if (data.coins) {
-                _this.cartItems = data.coins;
-                if (cur.rate == 1) {
-                    _this.cartTotalPrice = Object(__WEBPACK_IMPORTED_MODULE_5__modules_round_module__["a" /* round */])(data.totalPrice, 2); //total price of all the items in the shopping cart
-                }
-                else {
-                    _this.cartTotalPrice = 0;
-                    data.coins.map(function (x) {
-                        _this.cartTotalPrice = _this.cartTotalPrice + (Object(__WEBPACK_IMPORTED_MODULE_5__modules_round_module__["a" /* round */])(x.item.price * cur.rate, 2) * x.qty);
-                    });
-                }
-                _this.total_qty = data.totalQuantity; //total quantity of items in the shopping cart
-                //this.updateCartForm.value.carts[0].productName = this.cartItems[0].item.title;
-                _this.clearCartFirstItem();
-                _this.showCartItems(_this.cartItems);
+            //console.log(data);
+            if (data.cart) {
+                _this.total_qty = data.cart.totalQty; //total quantity of items in the shopping cart
+                _this.cartItems = Object(__WEBPACK_IMPORTED_MODULE_4__modules_array_module__["a" /* generateArray */])(data.cart.items);
+                //console.log(this.cartItems);
                 _this.getCurrencyRate();
-            }
-            else {
-                _this.clearCartFirstItem();
-                _this.cartItems = null;
-                _this.cartTotalPrice = 0;
-                _this.total_qty = 0;
             }
         }, function (err) { return console.log(err); }, function () { return console.log('Get Cart Items Complete'); });
     };
-    ShoppingCartComponent.prototype.removeItem = function (i) {
-        // remove address from the list
-        var control = this.updateCartForm.controls['carts'];
-        control.removeAt(i);
-        this.cartItems.splice(i, 1);
-    };
-    ShoppingCartComponent.prototype.isFormValid = function (cartForm) {
-        for (var i = 0; i < cartForm.carts.length; i++) {
-            if (Number(cartForm.carts[i].productQuantity) < 1 || !Number.isInteger(Number(cartForm.carts[i].productQuantity))) {
-                return false;
-            }
-        }
-        return true;
-    };
-    ShoppingCartComponent.prototype.updateCart = function (cartForm) {
+    ShoppingCartComponent.prototype.calculateTotalPrice = function (cartFormArray) {
         var _this = this;
-        //console.log(cartForm);
-        if (!this.isFormValid(cartForm)) {
-            console.log("Invalid Quantity");
-        }
-        else {
-            for (var i = 0; i < cartForm.carts.length; i++) {
-                this.cartItems[i].qty = cartForm.carts[i].productQuantity;
-                this.cartItems[i].price = cartForm.carts[i].productQuantity * cartForm.carts[i].productPrice;
-            }
-            //console.log(this.cartItems);
-            this.shoppingcart.updateCart(this.cartItems)
-                .subscribe(function (data) {
-                _this.total_qty = data.totalQuantity;
-                _this.cartTotalPrice = 0;
-                //console.log(data.items);
-                Object.keys(data.items).map(function (key, index) {
-                    _this.cartTotalPrice = _this.cartTotalPrice + (Object(__WEBPACK_IMPORTED_MODULE_5__modules_round_module__["a" /* round */])(data.items[key].item.price * _this.currency.rate, 2) * data.items[key].qty);
-                });
-            }, function (err) { return console.log(err); }, function () { return console.log('Update cart complete'); });
-        }
+        var totalPrice = 0;
+        cartFormArray.map(function (x) {
+            totalPrice = totalPrice + (Object(__WEBPACK_IMPORTED_MODULE_3__modules_round_module__["a" /* round */])(x.productPrice * _this.currency.rate, 2) * x.productQuantity);
+        });
+        return totalPrice;
+    };
+    ShoppingCartComponent.prototype.updateCart = function (cartFormArray) {
+        var _this = this;
+        //console.log(cartFormArray);
+        this.cartTotalPrice = this.calculateTotalPrice(cartFormArray);
+        //console.log("before");
+        //console.log(this.cartItems);
+        cartFormArray.map(function (x, i) {
+            _this.cartItems[i].qty = x.productQuantity;
+            _this.cartItems[i].price = x.productQuantity * x.productPrice;
+        });
+        //console.log("after");
+        //console.log(this.cartItems);
+        this.updateCartSession(this.cartItems);
+    };
+    ShoppingCartComponent.prototype.updateCartSession = function (cartItems) {
+        var _this = this;
+        this.shoppingcart.updateCart(cartItems)
+            .subscribe(function (data) {
+            //console.log(data);
+            _this.total_qty = data.totalQuantity;
+        }, function (err) { return console.log(err); }, function () { return console.log('Update cart complete'); });
     };
     // unsubscribe observables
     ShoppingCartComponent.prototype.ngOnDestroy = function () {
-        if (this.updateCartSubscription) {
-            this.updateCartSubscription.unsubscribe(); // <- New
-        }
         if (this.currencySubscription) {
             this.currencySubscription.unsubscribe();
         }
@@ -3435,10 +3572,8 @@ var ShoppingCartComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/shopping-cart/shopping-cart.component.html"),
             styles: [__webpack_require__("./src/app/shopping-cart/shopping-cart.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__services_shopping_cart_service__["a" /* ShoppingCartService */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_redux_store__["NgRedux"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_shopping_cart_service__["a" /* ShoppingCartService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_redux_store__["NgRedux"]])
     ], ShoppingCartComponent);
     return ShoppingCartComponent;
 }());
@@ -3457,11 +3592,12 @@ var ShoppingCartComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__checkout_checkout_component__ = __webpack_require__("./src/app/checkout/checkout.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shopping_cart_shopping_cart_component__ = __webpack_require__("./src/app/shopping-cart/shopping-cart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shopping_cart_shopping_cart_component__ = __webpack_require__("./src/app/shopping-cart/shopping-cart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shopping_cart_form_shopping_cart_form_component__ = __webpack_require__("./src/app/shopping-cart/shopping-cart-form/shopping-cart-form.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_shopping_cart_service__ = __webpack_require__("./src/app/services/shopping.cart.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_check_auth_service__ = __webpack_require__("./src/app/services/check.auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__header_header_module__ = __webpack_require__("./src/app/header/header.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__shopping_cart_routes__ = __webpack_require__("./src/app/shopping-cart/shopping-cart.routes.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__header_header_module__ = __webpack_require__("./src/app/header/header.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3478,15 +3614,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var shoppingCartRoutes = [
+
+/*
+const shoppingCartRoutes: Routes = [
     //{ path: 'home', component: HomepageComponent},
     //{ path: 'login', component: LoginComponent, canActivate: [isNotAuthGuard]},
     //{ path: 'signup', component: SignupComponent, canActivate: [isNotAuthGuard]},
     //{ path: 'purchase_history/order_details/:id', component: OrderDetailsComponent, canActivate: [isAuthGuard]},
     //{ path: 'purchase_history', component: PurchaseHistoryComponent, canActivate: [isAuthGuard]},
-    { path: 'cart', component: __WEBPACK_IMPORTED_MODULE_6__shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */] },
-    { path: 'checkout', component: __WEBPACK_IMPORTED_MODULE_5__checkout_checkout_component__["a" /* CheckoutComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_8__services_check_auth_service__["a" /* isAuthGuard */]] },
-];
+    { path: 'cart', component: ShoppingCartComponent},
+    { path: 'checkout', component: CheckoutComponent, canActivate: [isAuthGuard]},
+    //{ path: 'change_user_password', component: ChangeUserPasswordComponent, canActivate: [isAuthGuard]},
+    //{ path: 'order_confirmation/:id', component: OrderConfirmationComponent, canActivate: [isAuthGuard]},
+    //{ path: 'reset/:token', component: ResetPasswordComponent},
+    //{ path: 'forgot', component: ForgotUserPasswordComponent, canActivate: [isNotAuthGuard]},
+    //{ path: '', redirectTo: '/home', pathMatch: 'full'}
+  ]
+*/
 var ShoppingCartModule = /** @class */ (function () {
     function ShoppingCartModule() {
     }
@@ -3494,13 +3638,13 @@ var ShoppingCartModule = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* RouterModule */].forChild(shoppingCartRoutes),
-                __WEBPACK_IMPORTED_MODULE_9__header_header_module__["a" /* HeaderModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* RouterModule */].forChild(__WEBPACK_IMPORTED_MODULE_9__shopping_cart_routes__["a" /* shoppingCartRoutes */]),
+                __WEBPACK_IMPORTED_MODULE_10__header_header_module__["a" /* HeaderModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_forms__["b" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_forms__["c" /* ReactiveFormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */]
             ],
-            declarations: [__WEBPACK_IMPORTED_MODULE_6__shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */]],
+            declarations: [__WEBPACK_IMPORTED_MODULE_5__shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */], __WEBPACK_IMPORTED_MODULE_6__shopping_cart_form_shopping_cart_form_component__["a" /* ShoppingCartFormComponent */]],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_8__services_check_auth_service__["a" /* isAuthGuard */],
                 __WEBPACK_IMPORTED_MODULE_7__services_shopping_cart_service__["a" /* ShoppingCartService */]
@@ -3511,6 +3655,30 @@ var ShoppingCartModule = /** @class */ (function () {
     return ShoppingCartModule;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/shopping-cart/shopping-cart.routes.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return shoppingCartRoutes; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__checkout_checkout_component__ = __webpack_require__("./src/app/checkout/checkout.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shopping_cart_shopping_cart_component__ = __webpack_require__("./src/app/shopping-cart/shopping-cart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_check_auth_service__ = __webpack_require__("./src/app/services/check.auth.service.ts");
+
+
+
+var shoppingCartRoutes = [
+    //{ path: 'home', component: HomepageComponent},
+    //{ path: 'login', component: LoginComponent, canActivate: [isNotAuthGuard]},
+    //{ path: 'signup', component: SignupComponent, canActivate: [isNotAuthGuard]},
+    //{ path: 'purchase_history/order_details/:id', component: OrderDetailsComponent, canActivate: [isAuthGuard]},
+    //{ path: 'purchase_history', component: PurchaseHistoryComponent, canActivate: [isAuthGuard]},
+    { path: 'cart', component: __WEBPACK_IMPORTED_MODULE_1__shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */] },
+    { path: 'checkout', component: __WEBPACK_IMPORTED_MODULE_0__checkout_checkout_component__["a" /* CheckoutComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_2__services_check_auth_service__["a" /* isAuthGuard */]] },
+];
 
 
 /***/ }),
